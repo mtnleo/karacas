@@ -69,7 +69,10 @@ function decLetters(word) {
 
 
 function decrypt(word) {
-    word = word.slice(0, -3);
+    console.log("Last three: ", word.substring(word.length - 3).toLowerCase());
+    if (word.substring(word.length - 3).toLowerCase() === "aca") {
+        word = word.slice(0, -3);
+    }
     let modWord = reverseWord(word);
     modWord = decLetters(modWord);
 
