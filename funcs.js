@@ -1,5 +1,9 @@
+/// MAIN FUNCTIONING VARS ---------------------------------
+
 let kType = 1; // 0 -> Decryption | 1 -> Encryption
 const letterValues = ["a", "e", "i", "o", "u"];
+
+/// CHANGE ENCRYPTION MODE ---------------------------------
 
 document.getElementById("encrypt").onclick = () => {
     document.getElementById("title").innerText = "Karaca's Encryption Algorithm";
@@ -11,17 +15,29 @@ document.getElementById("decrypt").onclick = () => {
     kType = 0;
 } 
 
+/// ACTIVATE TEXT PROCESSING ---------------------------------
+
 document.getElementById("search").onclick = () => {
+    processText();
+} 
+
+document.getElementById('inputFormId').addEventListener('submit', function(event) {
+    event.preventDefault();
+    processText();
+});
+
+/// TEXT PROCESSING FUNCTION ---------------------------------
+
+function processText() {
     if (kType === 0) {
-        
         document.getElementById("output").innerText = decrypt(document.forms["inputForm"]["inputText"].value);
     }
     else {
         document.getElementById("output").innerText = encrypt(document.forms["inputForm"]["inputText"].value);
     }
-    
-    
-} 
+}
+
+
 
 
 function reverseWord(word) {
