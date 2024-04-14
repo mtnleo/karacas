@@ -7,11 +7,17 @@ const letterValues = ["a", "e", "i", "o", "u"];
 
 document.getElementById("encrypt").onclick = () => {
     document.getElementById("title").innerText = "Karaca's Encryption Algorithm";
+    document.getElementById("encrypt").style.borderStyle = "double";
+    document.getElementById("encrypt").style.borderColor = "white";
+    document.getElementById("decrypt").style.borderStyle = "none";
     kType = 1;
 }
 
 document.getElementById("decrypt").onclick = () => {
     document.getElementById("title").innerText = "Karaca's Decryption Algorithm";
+    document.getElementById("decrypt").style.borderStyle = "double";
+    document.getElementById("decrypt").style.borderColor = "white";
+    document.getElementById("encrypt").style.borderStyle = "none";
     kType = 0;
 } 
 
