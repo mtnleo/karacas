@@ -3,6 +3,12 @@
 let kType = 1; // 0 -> Decryption | 1 -> Encryption
 const letterValues = ["a", "e", "i", "o", "u"];
 
+/// COPY OUTPUT TEXT ---------------------------------
+
+document.getElementById("copyButton").onclick = () => {
+    copyOutput();
+}
+ 
 /// CHANGE ENCRYPTION MODE ---------------------------------
 
 document.getElementById("encrypt").onclick = () => {
@@ -109,4 +115,10 @@ function encrypt(word) {
     console.log("Encrypted word: " + modWord)
     modWord = modWord + "aca";
     return modWord;
+}
+
+function copyOutput() {
+    let copyText = document.getElementById("output").textContent;
+
+    navigator.clipboard.writeText(copyText);
 }
