@@ -53,24 +53,36 @@ function createSettingsNodes() {
 
         // add text input
     const elementLastLettersInput = document.createElement("input");
-    elementLastLettersInput.type = "text"
+    elementLastLettersInput.type = "text";
+    elementLastLettersInput.id = "lastLettersInput";
     elementLastLettersInput.value = lastLetters;
-    elementLastLettersInput.classList.add("col-sm-8", "form-control.w-100", "text-white");
+    elementLastLettersInput.classList.add("col-sm-7", "form-control.w-100", "text-white");
     elementLastLettersInput.disabled = true;
     elementLastLettersInput.style = "background-color: rgba(0, 0, 0, 0.5);"
 
         // add edit image
     const elementEditLettersImg = document.createElement("img");
-    
+    elementEditLettersImg.src = "Pencil icon.png"
+    elementEditLettersImg.classList.add("col-sm-1", "ms-3");
+    elementEditLettersImg.style.width = "20px";
+    elementEditLettersImg.onclick = editLastLettersInput;
+
 
     // append to the container
     elementContainerLastLetters.appendChild(elementLastLettersTitle);
     elementContainerLastLetters.appendChild(elementLastLettersInput);
+    elementContainerLastLetters.appendChild(elementEditLettersImg)
 
     // append to the div in the HTML
     elementDiv.appendChild(elementContainerLastLetters);
 
 
+}
+
+function editLastLettersInput() {
+    const elementLastLettersInput = document.getElementById("lastLettersInput");
+    console.log("State = " + elementLastLettersInput.disabled);
+    elementLastLettersInput.disabled = !elementLastLettersInput.disabled;
 }
 
 /// ACTIVATE TEXT PROCESSING ---------------------------------
