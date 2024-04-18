@@ -62,9 +62,11 @@ function createSettingsNodes() {
 
         // add edit image
     const elementEditLettersImg = document.createElement("img");
-    elementEditLettersImg.src = "Pencil icon.png"
+    elementEditLettersImg.id = "iconLastLettersEdit";
+    elementEditLettersImg.src = "Pencil icon.png";
     elementEditLettersImg.classList.add("col-sm-1", "ms-3");
     elementEditLettersImg.style.width = "20px";
+    elementEditLettersImg.style.cursor = "pointer"
     elementEditLettersImg.onclick = editLastLettersInput;
 
 
@@ -81,8 +83,18 @@ function createSettingsNodes() {
 
 function editLastLettersInput() {
     const elementLastLettersInput = document.getElementById("lastLettersInput");
-    console.log("State = " + elementLastLettersInput.disabled);
-    elementLastLettersInput.disabled = !elementLastLettersInput.disabled;
+    elementLastLettersInput.disabled = !elementLastLettersInput.disabled; // It will turn it on/off depending on the current state
+    // Change the img src
+    const editIconImg = document.getElementById("iconLastLettersEdit");
+    if (!elementLastLettersInput.disabled) { // if edit mode
+        editIconImg.src = "Verification Mark.png";
+    } else { // if disabled mode
+        // apply changes
+        lastLetters = elementLastLettersInput.value;
+
+        // change img
+        editIconImg.src = "Pencil icon.png";
+    }
 }
 
 /// ACTIVATE TEXT PROCESSING ---------------------------------
@@ -157,7 +169,7 @@ function encrypt(word) {
     console.log("Word reversed: " + modWord);
     modWord = encLetters(modWord);   // Encrypt letters
     console.log("Encrypted word: " + modWord)
-    modWord = modWord + "aca";
+    modWord = modWord + lastLetters;
     return modWord;
 }
 
