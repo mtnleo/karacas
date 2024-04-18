@@ -11,6 +11,7 @@
 
     <div class="container-fluid p-3 bg-primary text-white text-center">
         <h1 id="title">Karaca's Encryption Algorithm</h1>
+        <img data-bs-toggle="modal" data-bs-target="#settingsModal" src="Configuraciones icon.png" id="settingsIcon">
     </div>
 
     <div class="container-sm pb-5 pt-4 px-5 my-5 text-white justify-content-center rounded-4" style="background-color: rgba(0, 0, 0, 0.5);">
@@ -42,6 +43,39 @@
         </section>
       </div>
     </footer>
+
+    <!--SETTINGS MODAL-->
+
+    <div class="modal " id="settingsModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+    
+          <!-- Modal Header -->
+          <div class="modal-header bg-primary text-white">
+            <h4 class="modal-title">Settings</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body bg-dark text-white">
+            <!--CHANGE LAST THREE LETTERS-->
+            <div id="modalSettingsFunctions">
+
+            </div>
+
+            <!--CREDITS-->
+            <button type="button" class="btn btn-primary">Show Credits</button>
+
+          </div>
+    
+          <!-- Modal footer -->
+          <div class="modal-footer bg-dark">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+          </div>
+    
+        </div>
+      </div>
+    </div>
 
     <!-- Making the Bootstrap and CSS/JS work-->
     <link rel="stylesheet" href="styles.css">
