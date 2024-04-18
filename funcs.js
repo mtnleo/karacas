@@ -138,9 +138,10 @@ function reverseWord(word) {
 /// DECRYPT FUNCTIONS --------------------------------------
 
 function decrypt(word) {
-    console.log("Last three: ", word.substring(word.length - 3).toLowerCase());
-    if (word.substring(word.length - 3).toLowerCase() === lastLetters) {
-        word = word.slice(0, -3);
+    console.log("Last three: ", word.substring(word.length - lastLetters.length).toLowerCase());
+    if (word.substring(word.length - lastLetters.length).toLowerCase() === lastLetters) {
+        word = word.slice(0, -lastLetters.length);
+        console.log(word);
     }
     let modWord = reverseWord(word);
     modWord = decLetters(modWord);
