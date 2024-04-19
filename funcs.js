@@ -42,7 +42,7 @@ document.getElementById("settingsIcon").onclick = () => {
 function createSettingsNodes() {
     const elementDiv = document.getElementById("modalSettingsFunctions");
 
-    /// CREATE ROW FOR LAST LETTERS
+    /// CREATE ROW FOR LAST LETTERS ---------------------------------------
     const elementContainerLastLetters = document.createElement("div");
     elementContainerLastLetters.classList.add("d-flex", "align-items-center", "mb-3"); // Add Bootstrap classes
 
@@ -58,6 +58,7 @@ function createSettingsNodes() {
     elementLastLettersInput.value = lastLetters;
     elementLastLettersInput.classList.add("col-sm-7", "form-control.w-100", "text-white");
     elementLastLettersInput.disabled = true;
+    elementLastLettersInput.maxLength = 10;
     elementLastLettersInput.style = "background-color: rgba(0, 0, 0, 0.5);"
 
         // add edit image
@@ -78,6 +79,43 @@ function createSettingsNodes() {
     // append to the div in the HTML
     elementDiv.appendChild(elementContainerLastLetters);
 
+    /// CREATE ROW FOR REVERSE WORD ---------------------------------------
+    const elementContainerReverseWord = document.createElement("div");
+    elementContainerReverseWord.classList.add("d-flex", "align-items-center", "mb-3"); // Add Bootstrap classes
+
+
+    // create Reverse word text
+    const elementReverseTextText = document.createElement("p")
+    const reverseTextText = document.createTextNode("Reverse Word");
+    
+    elementReverseTextText.classList.add("col-sm-4");
+    elementReverseTextText.appendChild(reverseTextText);
+
+    // create label
+    const labelSwitch = document.createElement("label");
+    labelSwitch.classList.add("switch", "col-sm-4");
+
+    // create input
+    const elementInputReverseWord = document.createElement("input");
+    elementInputReverseWord.type = "checkbox";
+    
+    // create span
+    const elementSpanSlider = document.createElement("span");
+    elementSpanSlider.classList.add("slider", "round");
+
+        // append to label
+    labelSwitch.appendChild(elementInputReverseWord);
+    labelSwitch.appendChild(elementSpanSlider);
+
+
+    // append to the container
+    elementContainerReverseWord.appendChild(elementReverseTextText);
+    elementContainerReverseWord.appendChild(labelSwitch);
+    
+
+    // append container to the HTML
+    elementDiv.appendChild(elementContainerReverseWord);
+    
 
 }
 
