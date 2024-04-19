@@ -3,6 +3,7 @@
 let kType = 1; // 0 -> Decryption | 1 -> Encryption
 let letterValues = ["a", "e", "i", "o", "u"];
 let lastLetters = "aca";
+let isReverseWord = true;
 
 /// ACTIVATE JS DOM NODES
 createSettingsNodes();
@@ -98,6 +99,8 @@ function createSettingsNodes() {
     // create input
     const elementInputReverseWord = document.createElement("input");
     elementInputReverseWord.type = "checkbox";
+    elementInputReverseWord.checked = isReverseWord; // if true it's checked and it reverses the word
+    elementInputReverseWord.onclick = clickReverseSlider;
     
     // create span
     const elementSpanSlider = document.createElement("span");
@@ -133,6 +136,11 @@ function editLastLettersInput() {
         // change img
         editIconImg.src = "Pencil icon.png";
     }
+}
+
+function clickReverseSlider() {
+    isReverseWord = !isReverseWord;
+    console.log("Reverse Word: ", isReverseWord);
 }
 
 /// ACTIVATE TEXT PROCESSING ---------------------------------
@@ -181,7 +189,10 @@ function decrypt(word) {
         word = word.slice(0, -lastLetters.length);
         console.log(word);
     }
-    let modWord = reverseWord(word);
+    let modWord = word;
+    if (isReverseWord) {
+        modWord = reverseWord(word);
+    } 
     modWord = decLetters(modWord);
 
     return modWord;
@@ -204,8 +215,12 @@ function decLetters(word) {
 /// ENCRYPT FUNCTIONS ----------------------------------------
 
 function encrypt(word) {
-    let modWord = reverseWord(word); // Reverse word
-    console.log("Word reversed: " + modWord);
+    let modWord = word;
+    if (isReverseWord) {
+        modWord = reverseWord(word); // Reverse word
+        console.log("Word reversed: " + modWord);
+    }
+    
     modWord = encLetters(modWord);   // Encrypt letters
     console.log("Encrypted word: " + modWord)
     modWord = modWord + lastLetters;
