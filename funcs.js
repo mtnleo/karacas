@@ -14,6 +14,12 @@ document.getElementById("copyButton").onclick = () => {
     copyOutput();
     // set alert when copying
 }
+
+/// PASTE INPUT TEXT ---------------------------------
+
+document.getElementById("pasteButton").onclick = () => {
+    pasteInput();
+}
  
 /// CHANGE ENCRYPTION MODE ---------------------------------
 
@@ -243,6 +249,17 @@ function encLetters(word) {
 }
 
 /// EXTRA FUNCTIONS --------------------------------
+
+async function pasteInput() {
+    try {
+        const toPasteText = await navigator.clipboard.readText();
+        document.getElementById("inputText").value = toPasteText;
+        console.log("Pasted: " + toPasteText);
+    }
+    catch (error) {
+        console.error("Error pasting: " + error);
+    }
+}
 
 function copyOutput() {
     let copyText = document.getElementById("output").textContent;
