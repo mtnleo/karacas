@@ -2,6 +2,7 @@
 
 let kType = 1; // 0 -> Decryption | 1 -> Encryption
 let letterValues = ["a", "e", "i", "o", "u"];
+let vowelCode = ["0", "1", "2", "3", "4"];
 let lastLetters = "aca";
 let isReverseWord = true;
 
@@ -55,7 +56,7 @@ function createSettingsNodes() {
 
     /// CHANGE LAST LETTERS
     const elementLastLettersTitle = document.createElement("label");
-    elementLastLettersTitle.classList.add("col-sm-4", "col-form-label");
+    elementLastLettersTitle.classList.add("col-sm-4", "col-form-label", "lead");
     elementLastLettersTitle.textContent = "Change Last Letters";
 
         // add text input
@@ -88,19 +89,19 @@ function createSettingsNodes() {
 
     /// CREATE ROW FOR REVERSE WORD ---------------------------------------
     const elementContainerReverseWord = document.createElement("div");
-    elementContainerReverseWord.classList.add("d-flex", "align-items-center", "mb-3"); // Add Bootstrap classes
+    elementContainerReverseWord.classList.add( "align-items-center", "mb-3", "row"); // Add Bootstrap classes
 
 
     // create Reverse word text
     const elementReverseTextText = document.createElement("p")
     const reverseTextText = document.createTextNode("Reverse Word");
     
-    elementReverseTextText.classList.add("col-sm-4");
+    elementReverseTextText.classList.add("col-sm-4", "lead");
     elementReverseTextText.appendChild(reverseTextText);
 
     // create label
     const labelSwitch = document.createElement("label");
-    labelSwitch.classList.add("switch", "col-sm-4");
+    labelSwitch.classList.add("switch", "col-sm-1");
 
     // create input
     const elementInputReverseWord = document.createElement("input");
@@ -125,6 +126,37 @@ function createSettingsNodes() {
     // append container to the HTML
     elementDiv.appendChild(elementContainerReverseWord);
     
+    /// CREATE ROW FOR CHANGE VOWEL CODE ---------------------------------------
+    document.getElementById("codeA").value = vowelCode[0];
+    document.getElementById("codeE").value = vowelCode[1];
+    document.getElementById("codeI").value = vowelCode[2];
+    document.getElementById("codeO").value = vowelCode[3];
+    document.getElementById("codeU").value = vowelCode[4];
+/*
+    const elementContainerVowelCode = document.createElement("div");
+    elementContainerVowelCode.classList.add("container");
+
+    // Create div for row
+    const rowVowelCode = document.createElement("div");
+    rowVowelCode.classList.add("row");
+
+    // Create both col divs
+    const colVowelDivLeft = document.createElement("div");
+    colVowelDivLeft.classList.add("col");
+
+    const colVowelDivRight = document.createElement("div");
+    colVowelDivRight.classList.add("col");
+
+    // Create text for left div column
+    const vowelCodeText = document.createElement("p");
+    const vowelCodeTextNode = document.createTextNode("Code for Vowels");
+    vowelCodeText.appendChild(vowelCodeTextNode);
+
+    // Create row for right div column
+    const vowelCodeRightDivRow = document.createElement("div");
+    vowelCodeRightDivRow.classList.add("row");
+
+*/
 
 }
 
