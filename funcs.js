@@ -185,7 +185,7 @@ function createSettingsNodes() {
                         LastLettersInput.type = "text";
                         LastLettersInput.id = "lastLettersInput";
                         LastLettersInput.value = lastLetters;
-                        LastLettersInput.classList.add( "text-white", "rounded-3", "text-center");
+                        LastLettersInput.classList.add( "text-white", "rounded-3", "text-center", "border-0");
                         LastLettersInput.disabled = true;
                         LastLettersInput.maxLength = 10;
                         LastLettersInput.style = "background-color: rgba(0, 0, 0, 0.5);"
@@ -222,38 +222,58 @@ function createSettingsNodes() {
         // -------------------------------------------------------------------------
         /// CREATE ROW FOR REVERSE WORD ---------------------------------------
         const containerReverseWord = document.createElement("div");
-        containerReverseWord.classList.add( "align-items-center", "mb-3", "row"); // Add Bootstrap classes
+        containerReverseWord.classList.add("container", "my-3"); // Add Bootstrap classes
+
+            // create ROW
+            const rowReverseWord = document.createElement("div");
+            rowReverseWord.classList.add("row", "pt-2");
+
+                // create COLs
+                const colLeftReverseWord = document.createElement("div");
+                const colRightReverseWord = document.createElement("div");
+                colLeftReverseWord.classList.add("col-sm-5");
+                colRightReverseWord.classList.add("col-sm-5", "d-flex", "ms-auto");
+
+                    /// CREATE SLIDEBOX
+
+                    // create Reverse word text
+                    const reverseWordText = document.createElement("p")
+                    const reverseTextText = document.createTextNode("Reverse Word");
+                    
+                    reverseWordText.classList.add("lead", "fw-normal", "w-100");
+                    reverseWordText.appendChild(reverseTextText);
 
 
-            // create Reverse word text
-            const elementReverseTextText = document.createElement("p")
-            const reverseTextText = document.createTextNode("Reverse Word");
-            
-            elementReverseTextText.classList.add("col-sm-4", "lead");
-            elementReverseTextText.appendChild(reverseTextText);
+                    // create label
+                    const labelSwitchReverseWord = document.createElement("label");
+                    labelSwitchReverseWord.classList.add("switch");
 
-            // create label
-            const labelSwitch = document.createElement("label");
-            labelSwitch.classList.add("switch", "col-sm-1");
+                    // create input
+                    const checkboxReverseWord = document.createElement("input");
+                    checkboxReverseWord.type = "checkbox";
+                    checkboxReverseWord.checked = isReverseWord; // if true it's checked and it reverses the word
+                    checkboxReverseWord.onclick = clickReverseSlider;
+                    
+                    // create span
+                    const elementSpanSlider = document.createElement("span");
+                    elementSpanSlider.classList.add("slider", "round");
 
-            // create input
-            const elementInputReverseWord = document.createElement("input");
-            elementInputReverseWord.type = "checkbox";
-            elementInputReverseWord.checked = isReverseWord; // if true it's checked and it reverses the word
-            elementInputReverseWord.onclick = clickReverseSlider;
-            
-            // create span
-            const elementSpanSlider = document.createElement("span");
-            elementSpanSlider.classList.add("slider", "round");
+                    // append to label
+                    labelSwitchReverseWord.appendChild(checkboxReverseWord);
+                    labelSwitchReverseWord.appendChild(elementSpanSlider);
+                
+                // append to COLs
+                colLeftReverseWord.appendChild(reverseWordText);
 
-                // append to label
-            labelSwitch.appendChild(elementInputReverseWord);
-            labelSwitch.appendChild(elementSpanSlider);
+                colRightReverseWord.appendChild(labelSwitchReverseWord);
 
+            // append to the ROW
+            rowReverseWord.appendChild(colLeftReverseWord); // LEFT
 
-        // append to the container
-        containerReverseWord.appendChild(elementReverseTextText);
-        containerReverseWord.appendChild(labelSwitch);
+            rowReverseWord.appendChild(colRightReverseWord); // RIGHT
+
+        // append to the CONTAINER
+        containerReverseWord.appendChild(rowReverseWord);
         
 
     // append container to the HTML
