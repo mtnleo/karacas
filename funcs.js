@@ -6,8 +6,13 @@ let vowelCode = ["0", "1", "2", "3", "4"];
 let lastLetters = "aca";
 let isReverseWord = true;
 
-/// ACTIVATE JS DOM NODES
+/// ACTIVATE JS DOM NODES ---------------------------------
 createSettingsNodes();
+
+/// ENABLE/DISABLE VOWEL CODE CHANGE ---------------------------------
+document.getElementById("editVowelCodeIcon").onclick = () => {
+    editVowelCodeInput();
+}
 
 /// COPY OUTPUT TEXT ---------------------------------
 
@@ -160,6 +165,39 @@ function createSettingsNodes() {
 
 }
 
+function editVowelCodeInput() {
+    const vowelInputA = document.getElementById("codeA");
+    const vowelInputE = document.getElementById("codeE");
+    const vowelInputI = document.getElementById("codeI");
+    const vowelInputO = document.getElementById("codeO");
+    const vowelInputU = document.getElementById("codeU");
+
+    vowelInputA.disabled = !(vowelInputA.disabled);
+    vowelInputE.disabled = !(vowelInputE.disabled);
+    vowelInputI.disabled = !(vowelInputI.disabled);
+    vowelInputO.disabled = !(vowelInputO.disabled);
+    vowelInputU.disabled = !(vowelInputU.disabled);
+
+    if(!vowelInputA.disabled) {
+        document.getElementById("editVowelCodeIcon").src = "Verification Mark.png"
+    }
+    else {
+        for (let i = 0; i < 5; i++) { // change the array
+            if (document.getElementById("code" + letterValues[i].toUpperCase()).value != "") {
+                vowelCode[i] = document.getElementById("code" + letterValues[i].toUpperCase()).value;
+
+            }
+            else {
+                vowelCode[i] = i; // If there isn't any input, it's just gonna be the normal value
+                document.getElementById("code" + letterValues[i].toUpperCase()).value = i;
+            }
+            
+        }
+        document.getElementById("editVowelCodeIcon").src = "Pencil icon.png"
+    }
+
+}
+
 function editLastLettersInput() {
     const elementLastLettersInput = document.getElementById("lastLettersInput");
     elementLastLettersInput.disabled = !elementLastLettersInput.disabled; // It will turn it on/off depending on the current state
@@ -241,7 +279,7 @@ function decLetters(word) {
     let newWord = "";
     for (let i = 0; i < word.length; i++) {
         if (isNumber(word[i])) {
-            newWord += letterValues[word[i]];
+            newWord += letterValues[vowelCode.indexOf(word[i])];
         }
         else {
             newWord += word[i];
@@ -270,7 +308,7 @@ function encLetters(word) {
     for (let i = 0; i < word.length; i++) {
         if (!isNumber(word[i])) {
             if (letterValues.indexOf(word[i].toLowerCase()) >= 0) {
-                newWord += letterValues.indexOf(word[i].toLowerCase());
+                newWord += vowelCode[letterValues.indexOf(word[i].toLowerCase())];
             }
             else {
                 newWord += word[i];
