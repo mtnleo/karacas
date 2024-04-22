@@ -154,85 +154,112 @@ function decLetters(word) {
 
 
 function createSettingsNodes() {
-    // Main Div Element
+    // Main DIV Element
     const elementDiv = document.getElementById("modalSettingsFunctions");
 
+        // --------------------------------------------------------------------
         /// CREATE ROW FOR LAST LETTERS ---------------------------------------
         const containerLastLetters = document.createElement("div");
         containerLastLetters.classList.add("container", "align-items-center", "mb-3"); // Add Bootstrap classes
 
-        /// CHANGE LAST LETTERS
-        const elementLastLettersTitle = document.createElement("label");
-        elementLastLettersTitle.classList.add("col-sm-4", "col-form-label", "lead");
-        elementLastLettersTitle.textContent = "Change Last Letters";
+            // ROW for container
+            const rowLastLetters = document.createElement("div");
+            rowLastLetters.classList.add("row");
 
-            // add text input
-        const elementLastLettersInput = document.createElement("input");
-        elementLastLettersInput.type = "text";
-        elementLastLettersInput.id = "lastLettersInput";
-        elementLastLettersInput.value = lastLetters;
-        elementLastLettersInput.classList.add("col-sm-7", "form-control.w-100", "text-white");
-        elementLastLettersInput.disabled = true;
-        elementLastLettersInput.maxLength = 10;
-        elementLastLettersInput.style = "background-color: rgba(0, 0, 0, 0.5);"
+                // COLs for container
+                const colLeftLastLetters = document.createElement("div");
+                const colRightLastLetters = document.createElement("div");
+                colLeftLastLetters.classList.add("col", "d-flex", "align-content-center");
+                colRightLastLetters.classList.add("col", "d-flex");
 
-            // add edit image
-        const elementEditLettersImg = document.createElement("img");
-        elementEditLettersImg.id = "iconLastLettersEdit";
-        elementEditLettersImg.src = "Pencil icon.png";
-        elementEditLettersImg.classList.add("col-sm-1", "ms-3");
-        elementEditLettersImg.style.width = "20px";
-        elementEditLettersImg.style.cursor = "pointer"
-        elementEditLettersImg.onclick = editLastLettersInput;
+                        /// CHANGE LAST LETTERS
+
+                        // add title
+                        const lastLettersTitle = document.createElement("p");
+                        const textLastLettersTitle = document.createTextNode("Change Last Letters")
+                        lastLettersTitle.appendChild(textLastLettersTitle);
+                        lastLettersTitle.classList.add("lead", "mt-2", "fw-normal");
+
+                        // add input
+                        const LastLettersInput = document.createElement("input");
+                        LastLettersInput.type = "text";
+                        LastLettersInput.id = "lastLettersInput";
+                        LastLettersInput.value = lastLetters;
+                        LastLettersInput.classList.add( "text-white", "rounded-3", "text-center");
+                        LastLettersInput.disabled = true;
+                        LastLettersInput.maxLength = 10;
+                        LastLettersInput.style = "background-color: rgba(0, 0, 0, 0.5);"
+
+                        // add edit icon
+                        const editLastLettersIcon = document.createElement("img");
+                        editLastLettersIcon.id = "iconLastLettersEdit";
+                        editLastLettersIcon.src = "Pencil icon.png";
+                        editLastLettersIcon.classList.add("m-3");
+                        editLastLettersIcon.style.width = "20px";
+                        editLastLettersIcon.style.height = "20px";
+                        editLastLettersIcon.style.cursor = "pointer"
+                        editLastLettersIcon.onclick = editLastLettersInput;
 
 
-        // append to the container
-        containerLastLetters.appendChild(elementLastLettersTitle);
-        containerLastLetters.appendChild(elementLastLettersInput);
-        containerLastLetters.appendChild(elementEditLettersImg)
+                // append to the COL
+                colLeftLastLetters.appendChild(lastLettersTitle); // LEFT
 
-        // append to the div in the HTML
-        elementDiv.appendChild(containerLastLetters);
+                colRightLastLetters.appendChild(LastLettersInput); // RIGHT
+                colRightLastLetters.appendChild(editLastLettersIcon);
 
+
+            // append to the ROW
+            rowLastLetters.appendChild(colLeftLastLetters); // LEFT
+
+            rowLastLetters.appendChild(colRightLastLetters); // RIGHT
+
+        // append to the CONTAINER
+        containerLastLetters.appendChild(rowLastLetters); 
+
+    // append to the DIV in the HTML
+    elementDiv.appendChild(containerLastLetters);
+
+        // -------------------------------------------------------------------------
         /// CREATE ROW FOR REVERSE WORD ---------------------------------------
-        const elementContainerReverseWord = document.createElement("div");
-        elementContainerReverseWord.classList.add( "align-items-center", "mb-3", "row"); // Add Bootstrap classes
+        const containerReverseWord = document.createElement("div");
+        containerReverseWord.classList.add( "align-items-center", "mb-3", "row"); // Add Bootstrap classes
 
 
-        // create Reverse word text
-        const elementReverseTextText = document.createElement("p")
-        const reverseTextText = document.createTextNode("Reverse Word");
-        
-        elementReverseTextText.classList.add("col-sm-4", "lead");
-        elementReverseTextText.appendChild(reverseTextText);
+            // create Reverse word text
+            const elementReverseTextText = document.createElement("p")
+            const reverseTextText = document.createTextNode("Reverse Word");
+            
+            elementReverseTextText.classList.add("col-sm-4", "lead");
+            elementReverseTextText.appendChild(reverseTextText);
 
-        // create label
-        const labelSwitch = document.createElement("label");
-        labelSwitch.classList.add("switch", "col-sm-1");
+            // create label
+            const labelSwitch = document.createElement("label");
+            labelSwitch.classList.add("switch", "col-sm-1");
 
-        // create input
-        const elementInputReverseWord = document.createElement("input");
-        elementInputReverseWord.type = "checkbox";
-        elementInputReverseWord.checked = isReverseWord; // if true it's checked and it reverses the word
-        elementInputReverseWord.onclick = clickReverseSlider;
-        
-        // create span
-        const elementSpanSlider = document.createElement("span");
-        elementSpanSlider.classList.add("slider", "round");
+            // create input
+            const elementInputReverseWord = document.createElement("input");
+            elementInputReverseWord.type = "checkbox";
+            elementInputReverseWord.checked = isReverseWord; // if true it's checked and it reverses the word
+            elementInputReverseWord.onclick = clickReverseSlider;
+            
+            // create span
+            const elementSpanSlider = document.createElement("span");
+            elementSpanSlider.classList.add("slider", "round");
 
-            // append to label
-        labelSwitch.appendChild(elementInputReverseWord);
-        labelSwitch.appendChild(elementSpanSlider);
+                // append to label
+            labelSwitch.appendChild(elementInputReverseWord);
+            labelSwitch.appendChild(elementSpanSlider);
 
 
         // append to the container
-        elementContainerReverseWord.appendChild(elementReverseTextText);
-        elementContainerReverseWord.appendChild(labelSwitch);
+        containerReverseWord.appendChild(elementReverseTextText);
+        containerReverseWord.appendChild(labelSwitch);
         
 
-        // append container to the HTML
-        elementDiv.appendChild(elementContainerReverseWord);
+    // append container to the HTML
+    elementDiv.appendChild(containerReverseWord);
         
+        // -------------------------------------------------------------------------
         /// CREATE ROW FOR CHANGE VOWEL CODE ---------------------------------------
         document.getElementById("codeA").value = vowelCode[0];
         document.getElementById("codeE").value = vowelCode[1];
