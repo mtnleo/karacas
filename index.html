@@ -14,7 +14,7 @@
     </div>
 
     <!-- ---------------------- NAVBAR ---------------------- -->
-    <nav class="navbar navbar-expand-sm  navbar-dark" style="background-color: rgba(0, 0, 0, 0.5);">
+    <nav class="navbar shadow navbar-expand-sm  navbar-dark" style="background-color: rgba(0, 0, 0, 0.5);">
       <div class="container-fluid justify-content-center">
         <ul class="navbar-nav">
           <li class="nav-item mx-3">
@@ -40,7 +40,7 @@
     </nav>
 
     <!-- ---------------------- CONTENT ---------------------- -->
-    <div class="container-sm pb-5 pt-4 px-5 my-5 text-white justify-content-center rounded-4" style="background-color: rgba(0, 0, 0, 0.5);">
+    <div class="container-sm shadow pb-5 pt-4 px-5 my-5 text-white justify-content-center rounded-4" style="background-color: rgba(0, 0, 0, 0.5);">
       <!--BUTTONS-->
         <div class="row text-center">
           <div class="col">
@@ -100,8 +100,8 @@
 
     <!-- ---------------------- SETTINGS MODAL ---------------------- -->
 
-    <div class="modal " id="settingsModal">
-      <div class="modal-dialog modal-xxl">
+    <div class="modal fade " id="settingsModal">
+      <div class="modal-dialog modal-md">
         <div class="modal-content">
     
           <!-- Modal Header -->
@@ -123,13 +123,13 @@
                   <p class="lead fw-normal w-75">Change Vowel Code</p>
                   <img class="mt-3 mr-2 text-center" id="editVowelCodeIcon" src="Pencil icon.png" style="width: 20px; height:20px; cursor: pointer;">
                 </div>
-                <div class="container col p-4 rounded-3" style="background-color: rgba(0, 0, 0, 0.5);"> <!-- RIGHT COL -->
+                <div class="container col pb-4 px-4 pt-3 rounded-3" style="background-color: rgba(0, 0, 0, 0.5);"> <!-- RIGHT COL -->
                   <div class="row text-center"> <!-- Vowels -->
-                    <p class="col">A</p>
-                    <p class="col ms-2">E</p>
-                    <p class="col ms-2">I</p>
-                    <p class="col ms-2">O</p>
-                    <p class="col ms-2">U</p>
+                    <p class="col lead fw-bold">A</p>
+                    <p class="col ml-2 lead fw-bold">E</p>
+                    <p class="col ml-2 lead fw-bold">I</p>
+                    <p class="col ml-2 lead fw-bold">O</p>
+                    <p class="col ml-2 lead fw-bold">U</p>
                   </div>
                   <div class="row"> <!-- Code for Vowel-->
                     <input id="codeA" type="text" class="col bg-dark rounded-2 text-light border-0 text-center" maxlength="1" min disabled>

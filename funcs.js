@@ -20,7 +20,7 @@ createSettingsNodes(); // Activate HTML nodes for modal
 
 
 
-/// EDIT ICONS
+/// EDIT ICONS -----------------------------------------------
 
 document.getElementById("editVowelCodeIcon").onclick = () => { /// ENABLE/DISABLE VOWEL CODE CHANGE
     editVowelCodeInput();
@@ -35,13 +35,14 @@ document.getElementById("pasteButton").onclick = () => { /// PASTE INPUT TEXT
     pasteInput();
 }
  
-/// CHANGE ENCRYPTION MODE 
+/// CHANGE ENCRYPTION MODE ----------------------------------
 
 document.getElementById("encrypt").onclick = () => {
     document.getElementById("title").innerText = "Karaca's Encryption Algorithm";
     document.getElementById("encrypt").style.borderStyle = "double";
     document.getElementById("encrypt").style.borderColor = "white";
     document.getElementById("decrypt").style.borderStyle = "none";
+    document.getElementById("inputText").value = "";
     kType = 1;
 }
 
@@ -50,17 +51,21 @@ document.getElementById("decrypt").onclick = () => {
     document.getElementById("decrypt").style.borderStyle = "double";
     document.getElementById("decrypt").style.borderColor = "white";
     document.getElementById("encrypt").style.borderStyle = "none";
+    document.getElementById("inputText").value = "";
     kType = 0;
 } 
 
-/// ACTIVATE TEXT PROCESSING 
+/// ACTIVATE TEXT PROCESSING ---------------------------------
 
 document.getElementById("search").onclick = () => {
     processText();
+    document.getElementById("inputText").value = "";
 } 
+
 document.getElementById('inputFormId').addEventListener('submit', function(event) {
     event.preventDefault();
     processText();
+    document.getElementById("inputText").value = "";
 });
 
 
@@ -113,7 +118,7 @@ function encLetters(word) {
 }
 
 
-/// DECRYPT FUNCTIONS --------------------------------------
+/// DECRYPT FUNCTIONS ----------------------------------------
 
 function decrypt(word) {
     console.log("Last three: ", word.substring(word.length - lastLetters.length).toLowerCase());
@@ -141,6 +146,24 @@ function decLetters(word) {
             newWord += word[i];
         }
     }
+    return newWord;
+}
+
+
+
+/// USEFUL FUNCTIONS WHEN ENCRYPTING --------------------------
+
+function isNumber(character) {
+    return /\d/.test(character);
+}
+
+function reverseWord(word) {
+    let newWord = "";
+
+    for (let i = word.length - 1; i >= 0; i--) {
+        newWord += word[i];
+    }
+
     return newWord;
 }
 
@@ -290,6 +313,12 @@ function createSettingsNodes() {
 
 }
 
+
+/// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
+/// |||||||||||||||| FUNCTIONS FOR OPTIONS NODES |||||||||||||||||| |||
+/// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
+
+
 function editVowelCodeInput() {
     const vowelInputA = document.getElementById("codeA");
     const vowelInputE = document.getElementById("codeE");
@@ -344,27 +373,15 @@ function clickReverseSlider() {
     console.log("Reverse Word: ", isReverseWord);
 }
 
-
-
-
-/// USEFUL FUNCTIONS WHEN ENCRYPTING --------------------------------------
-
-function isNumber(character) {
-    return /\d/.test(character);
-}
-
-function reverseWord(word) {
-    let newWord = "";
-
-    for (let i = word.length - 1; i >= 0; i--) {
-        newWord += word[i];
-    }
-
-    return newWord;
+function changeLastLetters(newLastLetters) {
+    lastLetters = newLastLetters;
 }
 
 
-/// EXTRA FUNCTIONS --------------------------------
+/// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
+/// ||||||||||||||||||| COPY/PASTE FUNCTIONS || ||||||||||||||||||| |||
+/// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
+
 
 async function pasteInput() {
     try {
@@ -383,6 +400,3 @@ function copyOutput() {
     navigator.clipboard.writeText(copyText);
 }
 
-function changeLastLetters(newLastLetters) {
-    lastLetters = newLastLetters;
-}
