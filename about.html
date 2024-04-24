@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class="data-bs-theme='dark'">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+</head>
+<body class="bg-dark text-white">
+    <!-- ---------------------- HEADER ---------------------- -->
+    <div class="container-fluid p-3 bg-primary text-white text-center">
+        <h1 id="title">Karaca's Encryption Algorithm</h1>
+    </div>
+
+    <!-- ---------------------- NAVBAR ---------------------- -->
+    <nav class="navbar shadow navbar-expand-sm  navbar-dark" style="background-color: rgba(0, 0, 0, 0.5);">
+      <div class="container-fluid justify-content-center">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-3">
+            <a href="index.html" class="nav-link text-white">Home</a>
+          </li>
+
+          <li class="nav-item mx-3">
+            <a href=""  class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#settingsModal" id="settingsIcon" style="cursor: pointer">Options</a>
+          </li>
+        
+          <li class="nav-item mx-3">
+            <a href="about.html" class="nav-link text-white">About</a>
+          </li>
+
+          <li class="nav-item mx-3">
+            <a href="/explanation/" class="nav-link text-white">Explanation</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      
+    </nav>
+
+    <!-- ---------------------- CONTENT ---------------------- -->
+
+    <section>
+      <div class="container mt-4 d-flex justify-content-center text-center">
+        <h1>
+            Understand Karaca's Encrypting Method
+        </h1>
+
+        
+    </div>
+    </section>
+
+    <section class="section mt-3 d-flex justify-content-center text-center">
+      <div class="row mt-1">
+        <div class="col-6">
+          <div class="container">
+            <h2>What is Karaca?</h2>
+            <p class="text-start mt-4">Karaca's encryption is an algorithm
+              commonly used for programming excercises.
+              It's used to teach the fundamentals of
+              working with strings, arrays, dicts, and
+              anything you can make the encryption algorith with.
+              As every encryption algorithm, it lets you
+              encrypt text following some rules, which the
+              person decoding the text has to Understand in
+              order to decrypt it.
+            </p>
+          </div>
+        </div>
+        
+        <div class="col-6">
+          <div class="container">
+            <img src="Karaca's explanation.png" class="img-fluid">
+          </div>
+          
+        </div>
+      </div>
+      
+    </section>
+    
+
+
+    <!-- ---------------------- FOOTER ---------------------- -->
+    <footer>
+        <div class="fixed-bottom" style="background-color: rgba(0, 0, 0, 0.5);">
+          <section class="d-flex justify-content-center justify-content-lg-between p-4">
+          <p class="text-white text-center mt-2">Web by mtnleo</p>
+          <a href="https://www.github.com/mtnleo" class="me-4 text-reset">
+            <img class="mx-3" alt="GitHub Logo" src="github-mark-white.png">
+          </a>
+          
+          </section>
+        </div>
+      </footer>
+
+
+  
+      <!-- ---------------------- SETTINGS MODAL ---------------------- -->
+  
+      <div class="modal fade " id="settingsModal">
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header bg-primary text-white">
+              <h4 class="modal-title">Settings</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body bg-dark text-white">
+              <!--CHANGE LAST THREE LETTERS-->
+              <div id="modalSettingsFunctions">
+  
+              </div>
+              <!-- VOCAL CODE -->
+              <div id="vowelCodeDiv" class="container">
+                <div id="vowelCodeDivRow" class="row">
+                  <div class="col d-flex pt-4"> <!-- LEFT COL -->
+                    <p class="lead fw-normal w-75">Change Vowel Code</p>
+                    <img class="mt-3 mr-2 text-center" id="editVowelCodeIcon" src="Pencil icon.png" style="width: 20px; height:20px; cursor: pointer;">
+                  </div>
+                  <div class="container col pb-4 px-4 pt-3 rounded-3" style="background-color: rgba(0, 0, 0, 0.5);"> <!-- RIGHT COL -->
+                    <div class="row text-center"> <!-- Vowels -->
+                      <p class="col lead fw-bold">A</p>
+                      <p class="col ml-2 lead fw-bold">E</p>
+                      <p class="col ml-2 lead fw-bold">I</p>
+                      <p class="col ml-2 lead fw-bold">O</p>
+                      <p class="col ml-2 lead fw-bold">U</p>
+                    </div>
+                    <div class="row"> <!-- Code for Vowel-->
+                      <input id="codeA" type="text" class="col bg-dark rounded-2 text-light border-0 text-center" maxlength="1" min disabled>
+                      <input id="codeE" type="text" class="col bg-dark rounded-2 text-light ms-2 border-0 text-center" maxlength="1" disabled>
+                      <input id="codeI" type="text" class="col bg-dark rounded-2 text-light ms-2 border-0 text-center" maxlength="1" disabled>
+                      <input id="codeO" type="text" class="col bg-dark rounded-2 text-light ms-2 border-0 text-center" maxlength="1" disabled>
+                      <input id="codeU" type="text" class="col bg-dark rounded-2 text-light ms-2 border-0 text-center" maxlength="1" disabled>
+                    </div>
+                  </div>
+  
+                </div>
+              </div>
+  
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer bg-dark">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+  
+      <!-- ---------------------------------- --->
+      <!-- Making the Bootstrap and CSS/JS work-->
+      <link rel="stylesheet" href="styles.css">
+      <script src="funcs.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+
+</body>
+</html>
