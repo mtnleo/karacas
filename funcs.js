@@ -219,7 +219,7 @@ if (window.location.pathname.endsWith('index.html')) {
                             // add edit icon
                             const editLastLettersIcon = document.createElement("img");
                             editLastLettersIcon.id = "iconLastLettersEdit";
-                            editLastLettersIcon.src = "Pencil icon.png";
+                            editLastLettersIcon.src = "/img/Pencil icon.png";
                             editLastLettersIcon.classList.add("m-3");
                             editLastLettersIcon.style.width = "20px";
                             editLastLettersIcon.style.height = "20px";
@@ -336,7 +336,7 @@ function editVowelCodeInput() {
     vowelInputU.disabled = !(vowelInputU.disabled);
 
     if(!vowelInputA.disabled) {
-        document.getElementById("editVowelCodeIcon").src = "Verification Mark.png"
+        document.getElementById("editVowelCodeIcon").src = "/img/Verification Mark.png"
     }
     else {
         for (let i = 0; i < 5; i++) { // change the array
@@ -350,7 +350,7 @@ function editVowelCodeInput() {
             }
             
         }
-        document.getElementById("editVowelCodeIcon").src = "Pencil icon.png"
+        document.getElementById("editVowelCodeIcon").src = "/img/Pencil icon.png"
     }
 
 }
@@ -361,13 +361,13 @@ function editLastLettersInput() {
     // Change the img src
     const editIconImg = document.getElementById("iconLastLettersEdit");
     if (!elementLastLettersInput.disabled) { // if edit mode
-        editIconImg.src = "Verification Mark.png";
+        editIconImg.src = "/img/Verification Mark.png";
     } else { // if disabled mode
         // apply changes
         lastLetters = elementLastLettersInput.value;
 
         // change img
-        editIconImg.src = "Pencil icon.png";
+        editIconImg.src = "/img/Pencil icon.png";
     }
 }
 

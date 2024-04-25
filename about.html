@@ -5,40 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  
+    <link rel="icon" type="img/Karaca's Logo.png" href="img/Karaca's Logo.png">
 </head>
 <body class="bg-dark text-white">
-    <!-- ---------------------- HEADER ---------------------- -->
-    <div class="container-fluid p-3 bg-primary text-white text-center">
-        <h1 id="title">Karaca's Encryption Algorithm</h1>
-    </div>
 
-    <!-- ---------------------- NAVBAR ---------------------- -->
-    <nav class="navbar shadow navbar-expand-sm  navbar-dark" style="background-color: rgba(0, 0, 0, 0.5);">
-      <div class="container-fluid justify-content-center">
-        <ul class="navbar-nav">
-          <li class="nav-item mx-3">
-            <a href="index.html" class="nav-link text-white">Home</a>
-          </li>
+  <!-- ---------------------- HEADER / NAVBAR ---------------------- -->
+  <nav class="navbar shadow navbar-expand-md  navbar-dark" style="background-color: rgba(0, 0, 0, 0.5);">
+   <div class="container">
+     <!-- LOGO -->
+     <a href="index.html" class="navbar-brand">
+       <img src="/img/Karaca's logo.png" alt="Karaca's Logo">
+     </a>
 
-          <li class="nav-item mx-3">
-            <a href=""  class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#settingsModal" id="settingsIcon" style="cursor: pointer">Options</a>
-          </li>
-        
-          <li class="nav-item mx-3">
-            <a href="about.html" class="nav-link text-white">About</a>
-          </li>
+     <!-- MENU -->
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+       <span class="navbar-toggler-icon"></span>
+     </button>
 
-          <li class="nav-item mx-3">
-            <a href="/explanation/" class="nav-link text-white">Explanation</a>
-          </li>
-        
-        </ul>
-      </div>
-      
-      
-    </nav>
+     <div class="collapse navbar-collapse" id="navmenu">
+       <ul class="navbar-nav ms-auto">
+         <li class="nav-item mx-3">
+           <a href="index.html" class="nav-link text-white">Encrypt</a>
+         </li>
 
+         <li class="nav-item mx-3">
+           <a href=""  class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#settingsModal" id="settingsIcon" style="cursor: pointer">Options</a>
+         </li>
+       
+         <li class="nav-item mx-3">
+           <a href="about.html" class="nav-link text-white">About</a>
+         </li>
+       
+       </ul>
+     </div>
+     
+   </div>
+   
+     
+   
+ </nav>
     <!-- ---------------------- CONTENT ---------------------- -->
 
     <section>
@@ -74,7 +79,7 @@
         </div>
 
         <div class="col-6 d-flex align-items-center">
-          <img src="Karaca's explanation.png" class="rounded-2" style="max-height: 100%; max-width: 100%;">
+          <img src="/img/karacas-brief-explanation.png" class="rounded-2" style="max-height: 100%; max-width: 100%;">
 
         </div>
       </div>
@@ -84,7 +89,7 @@
     <section class="section my-3 d-flex justify-content-center text-center">
       <div class="row mt-1 mx-3">
         <div class="col-6 d-flex align-items-center">
-          <img src="Karaca's steps.png" class="rounded-2" style="max-height: 100%; max-width: 100%;">
+          <img src="/img/karacas-steps.png" class="rounded-2" style="max-height: 100%; max-width: 100%;">
 
         </div>
 
@@ -125,7 +130,7 @@
           <section class="d-flex justify-content-center justify-content-lg-between p-4">
           <p class="text-white text-center mt-2">Web by mtnleo</p>
           <a href="https://www.github.com/mtnleo" class="me-4 text-reset">
-            <img class="mx-3" alt="GitHub Logo" src="github-mark-white.png">
+            <img class="mx-3" alt="GitHub Logo" src="/img/github-mark-white.png">
           </a>
           
           </section>
@@ -141,7 +146,7 @@
           <div class="modal-content">
       
             <!-- Modal Header -->
-            <div class="modal-header bg-primary text-white">
+            <div class="modal-header text-white" style="background-color: rgba(0, 0, 0, 0.5);">
               <h4 class="modal-title">Settings</h4>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
@@ -157,7 +162,7 @@
                 <div id="vowelCodeDivRow" class="row">
                   <div class="col d-flex pt-4"> <!-- LEFT COL -->
                     <p class="lead fw-normal w-75">Change Vowel Code</p>
-                    <img class="mt-3 mr-2 text-center" id="editVowelCodeIcon" src="Pencil icon.png" style="width: 20px; height:20px; cursor: pointer;">
+                    <img class="mt-3 mr-2 text-center" id="editVowelCodeIcon" src="/img/Pencil icon.png" style="width: 20px; height:20px; cursor: pointer;">
                   </div>
                   <div class="container col pb-4 px-4 pt-3 rounded-3" style="background-color: rgba(0, 0, 0, 0.5);"> <!-- RIGHT COL -->
                     <div class="row text-center"> <!-- Vowels -->
@@ -182,7 +187,7 @@
             </div>
       
             <!-- Modal footer -->
-            <div class="modal-footer bg-dark">
+            <div class="modal-footer" style="background-color: rgba(0, 0, 0, 0.5);">
               <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
             </div>
       
