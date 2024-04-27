@@ -2,17 +2,28 @@
 /// |||||||||||||||| MAIN FUNCTIONING VARS ||||||||||||||||| |||
 /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
 
-
-
-let kType = 1; // 0 -> Decryption | 1 -> Encryption
-let letterValues = ["a", "e", "i", "o", "u"];
 let vowelCode = ["0", "1", "2", "3", "4"];
 let lastLetters = "aca";
 let isReverseWord = true;
 
+try { // if it's not the first time for the user
+    vowelCode = JSON.parse(localStorage.getItem("storeVowelCode"));
+    lastLetters = localStorage.getItem("storeLastLetters");
+    isReverseWord = JSON.parse(localStorage.getItem("storeIsReverseWord"));
+}
+catch (err) { // if it's the first time the user accesses the page
+    localStorage.setItem("storeVowelCode", JSON.stringify(vowelCode));
+    localStorage.setItem("storeLastLetters", lastLetters);
+    localStorage.setItem("storeIsReverseWord", JSON.stringify(isReverseWord));
+
+    console.log("New values saved. Welcome");
+}
+
+let kType = 1; // 0 -> Decryption | 1 -> Encryption
+let letterValues = ["a", "e", "i", "o", "u"];
+
+
 createSettingsNodes(); // Activate HTML nodes for modal
-
-
 
 /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
 /// |||||||||||||||||| ONCLICK FUNCTIONS ||||||||||||||||||| |||
@@ -41,7 +52,6 @@ if (window.location.pathname.endsWith('index.html')) {
     /// CHANGE ENCRYPTION MODE ----------------------------------
 
     document.getElementById("encrypt").onclick = () => {
-        document.getElementById("title").innerText = "Karaca's Encryption Algorithm";
         document.getElementById("encrypt").style.borderStyle = "double";
         document.getElementById("encrypt").style.borderColor = "white";
         document.getElementById("decrypt").style.borderStyle = "none";
@@ -50,7 +60,6 @@ if (window.location.pathname.endsWith('index.html')) {
     }
 
     document.getElementById("decrypt").onclick = () => {
-        document.getElementById("title").innerText = "Karaca's Decryption Algorithm";
         document.getElementById("decrypt").style.borderStyle = "double";
         document.getElementById("decrypt").style.borderColor = "white";
         document.getElementById("encrypt").style.borderStyle = "none";
@@ -350,6 +359,10 @@ function editVowelCodeInput() {
             }
             
         }
+        // Overwrite the stored data ########################
+        localStorage.setItem("storeVowelCode", JSON.stringify(vowelCode));// ########################
+
+        
         document.getElementById("editVowelCodeIcon").src = "/img/Pencil icon.png"
     }
 
@@ -365,6 +378,9 @@ function editLastLettersInput() {
     } else { // if disabled mode
         // apply changes
         lastLetters = elementLastLettersInput.value;
+        // overwrite the stored data ########################
+        localStorage.setItem("storeLastLetters", lastLetters);// ########################
+
 
         // change img
         editIconImg.src = "/img/Pencil icon.png";
@@ -373,11 +389,11 @@ function editLastLettersInput() {
 
 function clickReverseSlider() {
     isReverseWord = !isReverseWord;
-    console.log("Reverse Word: ", isReverseWord);
-}
 
-function changeLastLetters(newLastLetters) {
-    lastLetters = newLastLetters;
+    // overwrite the stored data ########################
+    localStorage.setItem("storeIsReverseWord", JSON.stringify(isReverseWord));// ########################
+
+    console.log("Reverse Word: ", isReverseWord);
 }
 
 
