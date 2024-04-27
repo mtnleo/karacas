@@ -40,7 +40,15 @@ document.getElementById("editVowelCodeIcon").onclick = () => { /// ENABLE/DISABL
 if (window.location.pathname.endsWith('index.html')) {
     document.getElementById("copyButton").onclick = () => { /// COPY OUTPUT TEXT
         copyOutput();
+
         // set alert when copying
+        let snackbarElement = document.getElementById("snackbar");
+
+        snackbarElement.className = "show";
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ snackbarElement.className = snackbarElement.className.replace("show", ""); }, 2900);
+        
     }
 
     document.getElementById("pasteButton").onclick = () => { /// PASTE INPUT TEXT
@@ -343,6 +351,8 @@ function editVowelCodeInput() {
     vowelInputI.disabled = !(vowelInputI.disabled);
     vowelInputO.disabled = !(vowelInputO.disabled);
     vowelInputU.disabled = !(vowelInputU.disabled);
+
+    // let tempArray = [0, 1, 2, 3, 4];
 
     if(!vowelInputA.disabled) {
         document.getElementById("editVowelCodeIcon").src = "/img/Verification Mark.png"
