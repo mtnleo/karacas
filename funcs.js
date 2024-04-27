@@ -42,7 +42,7 @@ if (window.location.pathname.endsWith('index.html')) {
         copyOutput();
 
         // set alert when copying
-        let snackbarElement = document.getElementById("snackbar");
+        let snackbarElement = document.getElementById("snackbarCopy");
 
         snackbarElement.className = "show";
 
@@ -352,7 +352,7 @@ function editVowelCodeInput() {
     vowelInputO.disabled = !(vowelInputO.disabled);
     vowelInputU.disabled = !(vowelInputU.disabled);
 
-    // let tempArray = [0, 1, 2, 3, 4];
+    let tempArray = [0, 1, 2, 3, 4];
 
     if(!vowelInputA.disabled) {
         document.getElementById("editVowelCodeIcon").src = "/img/Verification Mark.png"
@@ -360,22 +360,65 @@ function editVowelCodeInput() {
     else {
         for (let i = 0; i < 5; i++) { // change the array
             if (document.getElementById("code" + letterValues[i].toUpperCase()).value != "") {
-                vowelCode[i] = document.getElementById("code" + letterValues[i].toUpperCase()).value;
+                tempArray[i] = document.getElementById("code" + letterValues[i].toUpperCase()).value;
 
             }
             else {
-                vowelCode[i] = i; // If there isn't any input, it's just gonna be the normal value
+                tempArray[i] = i; // If there isn't any input, it's just gonna be the normal value
                 document.getElementById("code" + letterValues[i].toUpperCase()).value = i;
             }
             
         }
-        // Overwrite the stored data ########################
-        localStorage.setItem("storeVowelCode", JSON.stringify(vowelCode));// ########################
+        // validate that the array is all numbers and they're not repeated
+        if (validateVowelCode(tempArray)) {
+            vowelCode = tempArray;
+
+            // Overwrite the stored data ########################
+            localStorage.setItem("storeVowelCode", JSON.stringify(vowelCode));// ########################
+            
+            
+        }
+        else {
+            refillVowelCodeToNormal(vowelCode);
+            console.log("Vowel Code -> " + vowelCode);
+            // set alert when it isn't valid
+            let snackbarElement = document.getElementById("snackbarVowels");
+    
+            snackbarElement.className = "show";
+    
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function(){ snackbarElement.className = snackbarElement.className.replace("show", ""); }, 2900);
+            
+        }
 
         
         document.getElementById("editVowelCodeIcon").src = "/img/Pencil icon.png"
     }
 
+}
+
+function refillVowelCodeToNormal(validArray) {
+    const vowelInputA = document.getElementById("codeA");
+    const vowelInputE = document.getElementById("codeE");
+    const vowelInputI = document.getElementById("codeI");
+    const vowelInputO = document.getElementById("codeO");
+    const vowelInputU = document.getElementById("codeU");
+
+    for (let i = 0; i < validArray.length; i++) {
+        document.getElementById("code" + letterValues[i].toUpperCase()).value = validArray[i];
+    }
+}
+
+function validateVowelCode(valArray) {
+    let checkArray = [];
+    for (let i = 0; i < valArray.length; i++) {
+        if (!(isNumber(valArray[i])) | checkArray.includes(valArray[i])) {
+            return false; // if it contains a character OR it contains the same number
+        }
+        checkArray.push(valArray[i]);
+        
+    }  
+    return true; // if everything went well
 }
 
 function editLastLettersInput() {
