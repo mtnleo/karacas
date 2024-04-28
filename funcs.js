@@ -79,12 +79,14 @@ if (window.location.pathname.endsWith('index.html')) {
 
     document.getElementById("search").onclick = () => {
         processText();
+        createHistoryNode(document.getElementById("output").innerText);
         document.getElementById("inputText").value = "";
     } 
 
     document.getElementById('inputFormId').addEventListener('submit', function(event) {
         event.preventDefault();
         processText();
+        createHistoryNode(document.getElementById("output").innerText);
         document.getElementById("inputText").value = "";
     });
 
@@ -450,6 +452,52 @@ function clickReverseSlider() {
 }
 
 
+
+/// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
+/// |||||||||||||||| FUNCTIONS FOR HISTORY NODES |||||||||||||||||| |||
+/// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
+
+function createHistoryNode(outputText) {
+    let historyContainer = document.getElementById("historyContainer");
+
+    // Main row for output node
+    let mainRowContainer = document.createElement("div");
+    mainRowContainer.classList.add("row", "container", "ms-2", "bg-dark", "rounded-4", "mb-2");
+
+        // Text col
+        let textCol = document.createElement("div");
+        textCol.classList.add("col-11", "my-3");
+
+            // h3 for output
+            let h3Output = document.createElement("h3");
+            h3Output.classList.add("text-break", "history");
+            h3Output.innerText = outputText;
+
+        // append to text col
+        textCol.appendChild(h3Output);
+        
+        // Copy col
+        let copyCol = document.createElement("div");
+        copyCol.classList.add("col-1", "d-flex", "align-items-center");
+
+            // copy icon
+            let copyIcon = document.createElement("img");
+            copyIcon.src = "/img/Copy icon.png";
+            copyIcon.style = "height: 25px; width: 25px; cursor: pointer";
+
+        // append copy col to icon
+        copyCol.appendChild(copyIcon);
+
+    // Append cols to row
+    mainRowContainer.appendChild(textCol);
+    mainRowContainer.appendChild(copyCol);
+
+    // Append row to container
+    historyContainer.appendChild(mainRowContainer);
+
+}
+
+
 /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
 /// ||||||||||||||||||| COPY/PASTE FUNCTIONS || ||||||||||||||||||| |||
 /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
@@ -470,5 +518,9 @@ function copyOutput() {
     let copyText = document.getElementById("output").textContent;
 
     navigator.clipboard.writeText(copyText);
+}
+
+function copyOutputProvided(outputProvided) {
+    navigator.clipboard.writeText(outputProvided);
 }
 
