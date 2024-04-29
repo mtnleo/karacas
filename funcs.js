@@ -115,11 +115,9 @@ if (window.location.pathname.endsWith('index.html')) {
         let modWord = word;
         if (isReverseWord) {
             modWord = reverseWord(word); // Reverse word
-            console.log("Word reversed: " + modWord);
         }
         
         modWord = encLetters(modWord);   // Encrypt letters
-        console.log("Encrypted word: " + modWord)
         modWord = modWord + lastLetters;
         return modWord;
     }
@@ -134,6 +132,9 @@ if (window.location.pathname.endsWith('index.html')) {
                 else {
                     newWord += word[i];
                 }
+            }
+            else {
+                newWord += word[i];
             }
         }
         return newWord;
@@ -162,7 +163,13 @@ if (window.location.pathname.endsWith('index.html')) {
         let newWord = "";
         for (let i = 0; i < word.length; i++) {
             if (isNumber(word[i])) {
-                newWord += letterValues[vowelCode.indexOf(word[i])];
+                if (letterValues[vowelCode.indexOf(word[i])] === undefined) {
+                    newWord += word[i];
+                }
+                else {
+                    newWord += letterValues[vowelCode.indexOf(word[i])];
+                }
+                
             }
             else {
                 newWord += word[i];
