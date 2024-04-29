@@ -2,6 +2,9 @@
 /// |||||||||||||||| MAIN FUNCTIONING VARS ||||||||||||||||| |||
 /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
 
+
+// main functions
+
 let vowelCode = ["0", "1", "2", "3", "4"];
 let lastLetters = "aca";
 let isReverseWord = true;
@@ -52,6 +55,7 @@ if (window.location.pathname.endsWith('index.html')) {
     }
 
     document.getElementById("pasteButton").onclick = () => { /// PASTE INPUT TEXT
+        console.log("This runs");
         pasteInput();
     }
 
