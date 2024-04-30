@@ -495,6 +495,9 @@ function createHistoryNode(outputText) {
             let copyIcon = document.createElement("img");
             copyIcon.src = "/img/Copy icon.png";
             copyIcon.style = "height: 25px; width: 25px; cursor: pointer";
+            copyIcon.onclick = "copyOutputProvided(h3Output.innerText)";
+            copyIcon.setAttribute("onclick", "navigator.clipboard.writeText('" + outputText + "');");
+
 
         // append copy col to icon
         copyCol.appendChild(copyIcon);
