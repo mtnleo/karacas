@@ -219,8 +219,8 @@ if (window.location.pathname.endsWith('index.html')) {
                     // COLs for container
                     const colLeftLastLetters = document.createElement("div");
                     const colRightLastLetters = document.createElement("div");
-                    colLeftLastLetters.classList.add("col", "d-flex", "align-content-center");
-                    colRightLastLetters.classList.add("col", "d-flex");
+                    colLeftLastLetters.classList.add("col-sm", "d-flex", "align-content-center", "justify-content-center");
+                    colRightLastLetters.classList.add("col-sm", "d-flex","align-content-center", "justify-content-center");
 
                             /// CHANGE LAST LETTERS
 
@@ -281,8 +281,8 @@ if (window.location.pathname.endsWith('index.html')) {
                     // create COLs
                     const colLeftReverseWord = document.createElement("div");
                     const colRightReverseWord = document.createElement("div");
-                    colLeftReverseWord.classList.add("col-sm-5");
-                    colRightReverseWord.classList.add("col-sm-5", "d-flex", "ms-auto");
+                    colLeftReverseWord.classList.add("col-sm-5", "d-flex", "justify-content-center");
+                    colRightReverseWord.classList.add("col-sm-5", "d-flex", "ms-auto", "justify-content-center");
 
                         /// CREATE SLIDEBOX
 
