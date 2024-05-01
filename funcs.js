@@ -44,15 +44,9 @@ if (window.location.pathname.endsWith('index.html')) {
     document.getElementById("copyButton").onclick = () => { /// COPY OUTPUT TEXT
         copyOutput();
 
-        // set alert when copying
-        let snackbarElement = document.getElementById("snackbarCopy");
-
-        snackbarElement.className = "show";
-
-        // After 3 seconds, remove the show class from DIV
-        setTimeout(function(){ snackbarElement.className = snackbarElement.className.replace("show", ""); }, 2900);
-        
+        setSnackbarAlertCopy();
     }
+
 
     document.getElementById("pasteButton").onclick = () => { /// PASTE INPUT TEXT
         console.log("This runs");
@@ -251,8 +245,8 @@ if (window.location.pathname.endsWith('index.html')) {
                             editLastLettersIcon.id = "iconLastLettersEdit";
                             editLastLettersIcon.src = "/img/Pencil icon.png";
                             editLastLettersIcon.classList.add("m-3");
-                            editLastLettersIcon.style.width = "20px";
-                            editLastLettersIcon.style.height = "20px";
+                            editLastLettersIcon.style.width = "25px";
+                            editLastLettersIcon.style.height = "25px";
                             editLastLettersIcon.style.cursor = "pointer"
                             editLastLettersIcon.onclick = editLastLettersInput;
 
@@ -477,7 +471,7 @@ function createHistoryNode(outputText) {
 
         // Text col
         let textCol = document.createElement("div");
-        textCol.classList.add("col-11", "my-3");
+        textCol.classList.add("col-11", "my-3", "d-flex", "align-items-center");
 
             // h3 for output
             let h3Output = document.createElement("h3");
@@ -494,9 +488,9 @@ function createHistoryNode(outputText) {
             // copy icon
             let copyIcon = document.createElement("img");
             copyIcon.src = "/img/Copy icon.png";
+            copyIcon.classList = ("copy-popup")
             copyIcon.style = "height: 25px; width: 25px; cursor: pointer";
-            copyIcon.onclick = "copyOutputProvided(h3Output.innerText)";
-            copyIcon.setAttribute("onclick", "navigator.clipboard.writeText('" + outputText + "');");
+            copyIcon.setAttribute("onclick", "navigator.clipboard.writeText('" + outputText + "'); setSnackbarAlertCopy()");
 
 
         // append copy col to icon
@@ -538,3 +532,13 @@ function copyOutputProvided(outputProvided) {
     navigator.clipboard.writeText(outputProvided);
 }
 
+function setSnackbarAlertCopy() {
+    // set alert when copying
+    let snackbarElement = document.getElementById("snackbarCopy");
+
+    snackbarElement.className = "show";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ snackbarElement.className = snackbarElement.className.replace("show", ""); }, 2900);
+    
+}
