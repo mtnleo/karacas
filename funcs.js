@@ -2,6 +2,10 @@
 /// |||||||||||||||| MAIN FUNCTIONING VARS ||||||||||||||||| |||
 /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
 
+// History nodes variables
+
+const historyStorage = [];
+
 
 // main functions
 
@@ -77,14 +81,14 @@ if (window.location.pathname.endsWith('index.html')) {
 
     document.getElementById("search").onclick = () => {
         processText();
-        createHistoryNode(document.getElementById("output").innerText);
+        addHistory(document.getElementById("output").innerText);
         document.getElementById("inputText").value = "";
     } 
 
     document.getElementById('inputFormId').addEventListener('submit', function(event) {
         event.preventDefault();
         processText();
-        createHistoryNode(document.getElementById("output").innerText);
+        addHistory(document.getElementById("output").innerText);
         document.getElementById("inputText").value = "";
     });
 
@@ -462,12 +466,30 @@ function clickReverseSlider() {
 /// |||||||||||||||| FUNCTIONS FOR HISTORY NODES |||||||||||||||||| |||
 /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
 
-function createHistoryNode(outputText) {
-    let historyContainer = document.getElementById("historyContainer");
+function addHistory(valueToAdd) {
+    let givenId = "history" + historyStorage.length;
 
+    // Add the information to the history list
+    historyStorage.push({id: givenId, content: valueToAdd});
+    console.log(historyStorage[historyStorage.length -1]);
+
+
+    createHistoryNode(valueToAdd, givenId);
+
+    if(historyStorage.length > 10) {
+        deleteLastHistoryNode();
+    }
+}
+
+
+
+function createHistoryNode(outputText, givenId) {
+    let historyContainer = document.getElementById("historyContainer");
+    
     // Main row for output node
     let mainRowContainer = document.createElement("div");
     mainRowContainer.classList.add("row", "container", "ms-2", "bg-dark", "rounded-4", "mb-2");
+    mainRowContainer.id = givenId;
 
         // Text col
         let textCol = document.createElement("div");
@@ -503,6 +525,12 @@ function createHistoryNode(outputText) {
     // Append row to container
     historyContainer.appendChild(mainRowContainer);
 
+}
+
+function deleteLastHistoryNode() {
+    // Grab the 11th element beginning from the last one
+    let deleteElement = document.getElementById(historyStorage[historyStorage.length - 11].id);
+    deleteElement.remove();
 }
 
 
