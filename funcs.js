@@ -4,7 +4,7 @@
 
 // History nodes variables
 
-const historyStorage = [];
+let historyStorage = [];
 
 
 // main functions
@@ -17,11 +17,13 @@ try { // if it's not the first time for the user
     vowelCode = JSON.parse(localStorage.getItem("storeVowelCode"));
     lastLetters = localStorage.getItem("storeLastLetters");
     isReverseWord = JSON.parse(localStorage.getItem("storeIsReverseWord"));
+    historyStorage = JSON.parse(localStorage.getItem("historyStorage"));
 }
 catch (err) { // if it's the first time the user accesses the page
     localStorage.setItem("storeVowelCode", JSON.stringify(vowelCode));
     localStorage.setItem("storeLastLetters", lastLetters);
     localStorage.setItem("storeIsReverseWord", JSON.stringify(isReverseWord));
+    localStorage.setItem("historyStorage", JSON.stringify(historyStorage));
 
     console.log("New values saved. Welcome");
 }
@@ -31,6 +33,7 @@ let letterValues = ["a", "e", "i", "o", "u"];
 
 
 createSettingsNodes(); // Activate HTML nodes for modal
+initHistoryNodes();
 
 /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
 /// |||||||||||||||||| ONCLICK FUNCTIONS ||||||||||||||||||| |||
@@ -466,6 +469,12 @@ function clickReverseSlider() {
 /// |||||||||||||||| FUNCTIONS FOR HISTORY NODES |||||||||||||||||| |||
 /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
 
+function initHistoryNodes() {
+    for (let i = 0; i < historyStorage.length; i++) {
+        createHistoryNode(historyStorage[i].content, historyStorage[i].id);
+    }
+}
+
 function addHistory(valueToAdd) {
     let givenId = "history" + historyStorage.length;
 
@@ -473,12 +482,13 @@ function addHistory(valueToAdd) {
     historyStorage.push({id: givenId, content: valueToAdd});
     console.log(historyStorage[historyStorage.length -1]);
 
-
     createHistoryNode(valueToAdd, givenId);
 
     if(historyStorage.length > 10) {
         deleteLastHistoryNode();
     }
+
+    localStorage.setItem("historyStorage", JSON.stringify(historyStorage));
 }
 
 
