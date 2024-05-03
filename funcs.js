@@ -1,3 +1,5 @@
+//localStorage.clear();
+
 /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
 /// |||||||||||||||| MAIN FUNCTIONING VARS ||||||||||||||||| |||
 /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
@@ -13,13 +15,13 @@ let vowelCode = ["0", "1", "2", "3", "4"];
 let lastLetters = "aca";
 let isReverseWord = true;
 
-try { // if it's not the first time for the user
+if (JSON.parse(localStorage.getItem("storeVowelCode")) !== null) {
     vowelCode = JSON.parse(localStorage.getItem("storeVowelCode"));
     lastLetters = localStorage.getItem("storeLastLetters");
     isReverseWord = JSON.parse(localStorage.getItem("storeIsReverseWord"));
     historyStorage = JSON.parse(localStorage.getItem("historyStorage"));
 }
-catch (err) { // if it's the first time the user accesses the page
+else {
     localStorage.setItem("storeVowelCode", JSON.stringify(vowelCode));
     localStorage.setItem("storeLastLetters", lastLetters);
     localStorage.setItem("storeIsReverseWord", JSON.stringify(isReverseWord));
