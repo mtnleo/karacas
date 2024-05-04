@@ -518,7 +518,7 @@ function createHistoryNode(outputText, givenId) {
         
         // Copy col
         let copyCol = document.createElement("div");
-        copyCol.classList.add("col-1", "d-flex", "align-items-center");
+        copyCol.classList.add("col-1", "d-flex", "align-items-center", "justify-content-end");
 
             // copy icon
             let copyIcon = document.createElement("img");
