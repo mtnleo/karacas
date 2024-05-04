@@ -203,7 +203,7 @@ if (window.location.pathname.endsWith('index.html')) {
         return newWord;
     }
 
-    }
+}
 
 
     /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
@@ -212,7 +212,7 @@ if (window.location.pathname.endsWith('index.html')) {
 
 
 
-    function createSettingsNodes() {
+function createSettingsNodes() {
         // Main DIV Element
         const elementDiv = document.getElementById("modalSettingsFunctions");
 
@@ -472,7 +472,7 @@ function clickReverseSlider() {
 /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
 
 function initHistoryNodes() {
-    for (let i = 0; i < historyStorage.length; i++) {
+    for (let i = historyStorage.length - 1; i > historyStorage.length - 11; i--) {
         createHistoryNode(historyStorage[i].content, historyStorage[i].id);
     }
 }
@@ -491,6 +491,7 @@ function addHistory(valueToAdd) {
     }
 
     localStorage.setItem("historyStorage", JSON.stringify(historyStorage));
+    getTotalPages();
 }
 
 
@@ -543,6 +544,23 @@ function deleteLastHistoryNode() {
     // Grab the 11th element beginning from the last one
     let deleteElement = document.getElementById(historyStorage[historyStorage.length - 11].id);
     deleteElement.remove();
+}
+
+/// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
+/// ||||||||||||||||||| HANDLING HISTORY PAGES |||||||||||||||||||| |||
+/// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
+
+function getTotalPages() {
+    let totalNumberOfPages;
+    if (historyStorage.length % 10 === 0) {
+        totalNumberOfPages = Math.floor(historyStorage.length / 10);
+    }
+    else {
+        totalNumberOfPages = Math.floor(historyStorage.length / 10 + 1);
+
+    }
+    return totalNumberOfPages;
+    
 }
 
 
