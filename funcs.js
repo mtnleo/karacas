@@ -7,7 +7,7 @@
 // History nodes variables
 
 let historyStorage = [];
-
+let currentPage = 1;
 
 // main functions
 
@@ -472,9 +472,21 @@ function clickReverseSlider() {
 /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
 
 function initHistoryNodes() {
-    for (let i = historyStorage.length - 1; i > historyStorage.length - 11; i--) {
-        createHistoryNode(historyStorage[i].content, historyStorage[i].id);
+    //updatePagesLabel();
+    //disablePageArrow("pageLeft");
+    //if(getTotalPages() === 1) {
+    //    disablePageArrow("pageRight");
+    //}
+
+    if(historyStorage.length > 1) {
+        for (let i = historyStorage.length - 1; i > historyStorage.length - 11; i--) {
+            createHistoryNode(historyStorage[i].content, historyStorage[i].id);
+            }
     }
+    else if(historyStorage.length === 1) {
+        createHistoryNode(historyStorage[0].content, historyStorage[0].id);
+    }
+        
 }
 
 function addHistory(valueToAdd) {
@@ -491,7 +503,7 @@ function addHistory(valueToAdd) {
     }
 
     localStorage.setItem("historyStorage", JSON.stringify(historyStorage));
-    getTotalPages();
+    //updatePagesLabel();
 }
 
 
@@ -546,23 +558,66 @@ function deleteLastHistoryNode() {
     deleteElement.remove();
 }
 
-/// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
-/// ||||||||||||||||||| HANDLING HISTORY PAGES |||||||||||||||||||| |||
-/// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
+// function updatePagesLabel() {
+//     document.getElementById("pagesLabel").innerText = currentPage + " / " + getTotalPages();
+// }
 
-function getTotalPages() {
-    let totalNumberOfPages;
-    if (historyStorage.length % 10 === 0) {
-        totalNumberOfPages = Math.floor(historyStorage.length / 10);
-    }
-    else {
-        totalNumberOfPages = Math.floor(historyStorage.length / 10 + 1);
+// /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
+// /// ||||||||||||||||||| HANDLING HISTORY PAGES |||||||||||||||||||| |||
+// /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
 
-    }
-    return totalNumberOfPages;
+// function getTotalPages() {
+//     let totalNumberOfPages;
+//     if (historyStorage.length % 10 === 0) {
+//         totalNumberOfPages = Math.floor(historyStorage.length / 10);
+//     }
+//     else {
+//         totalNumberOfPages = Math.floor(historyStorage.length / 10 + 1);
+
+//     }
+//     return totalNumberOfPages;
     
-}
+// }
 
+// function disablePageArrow(arrowId) {
+//     document.getElementById(arrowId).style.opacity = "50%";
+//     document.getElementById(arrowId).style.cursor = "default";
+// }
+
+// function enablePageArrow(arrowId) {
+//     document.getElementById(arrowId).style.opacity = "100%";
+//     document.getElementById(arrowId).style.cursor = "pointer";
+// }
+
+// function pageRight() {
+//     if (currentPage < getTotalPages()) { // if there're pages to the right
+//         currentPage += 1;
+//         if(currentPage === getTotalPages()) {
+//             disablePageArrow("pageRight");
+//         }
+
+//         updatePagesLabel();
+//     }
+// }
+
+// function pageLeft() {
+//     if (currentPage !== 1) { // if there're pages to the left
+//         currentPage -= 1;
+//         if(currentPage === 1) {
+//             disablePageArrow("pageLeft");
+//         }
+
+//         updatePagesLabel();
+//     }
+// }
+
+// function deletePage() {
+
+// }
+
+// function ShowNewPage(newPageIndex) {
+//     for (let i = (getTotalPages() - newPageIndex) * 10; i > ((getTotalPages() - newPageIndex) * 10) - 10; i--)
+// }
 
 /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
 /// ||||||||||||||||||| COPY/PASTE FUNCTIONS || ||||||||||||||||||| |||
