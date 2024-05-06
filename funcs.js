@@ -479,18 +479,31 @@ function initHistoryNodes() {
     //}
 
     if(historyStorage.length > 1) {
+        // change for for each
         for (let i = historyStorage.length - 1; i > historyStorage.length - 11; i--) {
-            createHistoryNode(historyStorage[i].content, historyStorage[i].id);
+            if (historyStorage[i] !== undefined) {
+                createHistoryNode(historyStorage[i].content, historyStorage[i].id);
             }
+            
+        }
     }
     else if(historyStorage.length === 1) {
         createHistoryNode(historyStorage[0].content, historyStorage[0].id);
+
+        
     }
         
 }
 
 function addHistory(valueToAdd) {
-    let givenId = "history" + historyStorage.length;
+    let givenId;
+    if (historyStorage.length > 0) {
+        givenId = historyStorage[historyStorage.length - 1].id + 1;
+    }
+    else {
+        givenId = 1;
+    }
+    
 
     // Add the information to the history list
     historyStorage.push({id: givenId, content: valueToAdd});
@@ -539,9 +552,19 @@ function createHistoryNode(outputText, givenId) {
             copyIcon.style = "height: 25px; width: 25px; cursor: pointer";
             copyIcon.setAttribute("onclick", "navigator.clipboard.writeText('" + outputText + "'); setSnackbarAlertCopy()");
 
+            // delete icon
+            let deleteIcon = document.createElement("img");
+            deleteIcon.src = "/img/x.png";
+                    // add pop up
+            deleteIcon.style = "height: 25px; width: 25px; cursor: pointer";
+            deleteIcon.setAttribute("onclick", "deleteHistoryNode('" + givenId + "');");
+            deleteIcon.classList.add("ml-4");
+
 
         // append copy col to icon
         copyCol.appendChild(copyIcon);
+        copyCol.appendChild(deleteIcon);
+        
 
     // Append cols to row
     mainRowContainer.appendChild(textCol);
@@ -556,6 +579,16 @@ function deleteLastHistoryNode() {
     // Grab the 11th element beginning from the last one
     let deleteElement = document.getElementById(historyStorage[historyStorage.length - 11].id);
     deleteElement.remove();
+}
+
+function deleteHistoryNode(delId) {
+    document.getElementById(delId).remove();
+
+    let delIndex = historyStorage.map((node) => node.id).indexOf(delId);
+    historyStorage.splice(delIndex, 1);
+
+    console.log("HistoryStorage after del: \n" + JSON.stringify(historyStorage));
+    localStorage.setItem("historyStorage", JSON.stringify(historyStorage));
 }
 
 // function updatePagesLabel() {
