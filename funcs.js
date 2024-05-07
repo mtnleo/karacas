@@ -97,7 +97,11 @@ if (window.location.pathname.endsWith('index.html')) {
         document.getElementById("inputText").value = "";
     });
 
-
+    /// DELETING HISTORY
+    document.getElementById("deleteHistory").onclick = () => {
+        console.log("Deleted");
+        deleteAllHistory();
+    }
 
     /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
     /// ||||||||||||||| ENCRYPTING & DECRYPTING |||||||||||||||| |||
@@ -522,11 +526,11 @@ function addHistory(valueToAdd) {
 
 
 function createHistoryNode(outputText, givenId) {
-    let historyContainer = document.getElementById("historyContainer");
+    let historyContainer = document.getElementById("historyNodesContainer");
     
     // Main row for output node
     let mainRowContainer = document.createElement("div");
-    mainRowContainer.classList.add("row", "container", "ms-2", "bg-dark", "rounded-4", "mb-2");
+    mainRowContainer.classList.add("row", "container", "ms-1", "bg-dark", "rounded-4", "mb-2");
     mainRowContainer.id = givenId;
 
         // Text col
@@ -588,6 +592,14 @@ function deleteHistoryNode(delId) {
     historyStorage.splice(delIndex, 1);
 
     console.log("HistoryStorage after del: \n" + JSON.stringify(historyStorage));
+    localStorage.setItem("historyStorage", JSON.stringify(historyStorage));
+}
+
+function deleteAllHistory() {
+    const mainDiv = document.getElementById("historyNodesContainer");
+    mainDiv.innerHTML = "";
+
+    historyStorage = [];
     localStorage.setItem("historyStorage", JSON.stringify(historyStorage));
 }
 
