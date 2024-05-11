@@ -486,13 +486,13 @@ function initHistoryNodes() {
         // change for for each
         for (let i = historyStorage.length - 1; i > historyStorage.length - 11; i--) {
             if (historyStorage[i] !== undefined) {
-                createHistoryNode(historyStorage[i].content, historyStorage[i].id);
+                createHistoryNode(historyStorage[i].content, historyStorage[i].id, true);
             }
             
         }
     }
     else if(historyStorage.length === 1) {
-        createHistoryNode(historyStorage[0].content, historyStorage[0].id);
+        createHistoryNode(historyStorage[0].content, historyStorage[0].id, true);
 
         
     }
@@ -513,7 +513,7 @@ function addHistory(valueToAdd) {
     historyStorage.push({id: givenId, content: valueToAdd});
     console.log(historyStorage[historyStorage.length -1]);
 
-    createHistoryNode(valueToAdd, givenId);
+    createHistoryNode(valueToAdd, givenId, false);
 
     if(historyStorage.length > 10) {
         deleteLastHistoryNode();
@@ -525,7 +525,7 @@ function addHistory(valueToAdd) {
 
 
 
-function createHistoryNode(outputText, givenId) {
+function createHistoryNode(outputText, givenId, booting) {
     let historyContainer = document.getElementById("historyNodesContainer");
     
     // Main row for output node
@@ -575,7 +575,14 @@ function createHistoryNode(outputText, givenId) {
     mainRowContainer.appendChild(copyCol);
 
     // Append row to container
-    historyContainer.appendChild(mainRowContainer);
+    if(booting === true) {
+        historyContainer.appendChild(mainRowContainer);
+    }
+    else {
+        // insert new row on top of the container
+        historyContainer.insertBefore(mainRowContainer, historyContainer.children[0]);
+    }
+    
 
 }
 
