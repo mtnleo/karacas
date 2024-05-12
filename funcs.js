@@ -559,7 +559,7 @@ function createHistoryNode(outputText, givenId, booting) {
             // delete icon
             let deleteIcon = document.createElement("img");
             deleteIcon.src = "/img/x.png";
-                    // add pop up
+            // add pop up
             deleteIcon.style = "height: 25px; width: 25px; cursor: pointer";
             deleteIcon.setAttribute("onclick", "deleteHistoryNode('" + givenId + "');");
             deleteIcon.classList.add("ml-4");
