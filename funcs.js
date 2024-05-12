@@ -595,11 +595,20 @@ function deleteLastHistoryNode() {
 function deleteHistoryNode(delId) {
     document.getElementById(delId).remove();
 
-    let delIndex = historyStorage.map((node) => node.id).indexOf(delId);
+    let delIndex = searchHistoryNodeIndexById(delId);
     historyStorage.splice(delIndex, 1);
 
-    console.log("HistoryStorage after del: \n" + JSON.stringify(historyStorage));
+    
     localStorage.setItem("historyStorage", JSON.stringify(historyStorage));
+}
+
+function searchHistoryNodeIndexById(searchedId) {
+    for (let i = 0; i < historyStorage.length; i++) {
+        if (historyStorage[i].id == searchedId) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 function deleteAllHistory() {
