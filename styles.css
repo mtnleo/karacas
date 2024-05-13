@@ -2,6 +2,11 @@ body {
   padding-bottom: 6rem;
 }
 
+mark {
+  background-color: transparent;
+  color: yellow;
+}
+
 img {
     max-width: 40px;
     max-height: 50px;
