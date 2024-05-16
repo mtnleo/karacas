@@ -528,11 +528,18 @@ function createHistoryNode(outputText, givenId, booting) {
 
         // Text col
         let textCol = document.createElement("div");
-        textCol.classList.add("col-11", "my-3", "d-flex", "align-items-center");
+        textCol.classList.add("col", "w-75", "my-3", "d-flex", "align-items-center");
 
             // h3 for output
             let h3Output = document.createElement("h3");
-            h3Output.classList.add("text-break", "history");
+            if(window.screen.width <= 550) { // IF PHONE
+                h3Output.classList.add("text-break", "history-phone");
+
+            }
+            else {
+                h3Output.classList.add("text-break", "history");
+            }
+            
             h3Output.innerText = outputText;
 
         // append to text col
@@ -540,7 +547,7 @@ function createHistoryNode(outputText, givenId, booting) {
         
         // Copy col
         let copyCol = document.createElement("div");
-        copyCol.classList.add("col-1", "d-flex", "align-items-center", "justify-content-end");
+        copyCol.classList.add("col", "d-flex", "align-items-center", "justify-content-end");
 
             // copy icon
             let copyIcon = document.createElement("img");

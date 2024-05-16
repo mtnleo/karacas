@@ -21,7 +21,14 @@ table {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 20em;
+}
+
+.history-phone {
+  display:inline-block;
+  white-space: nowrap;
+  inline-size: 42vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .lucide {
