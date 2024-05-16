@@ -33,9 +33,10 @@ else {
 let kType = 1; // 0 -> Decryption | 1 -> Encryption
 let letterValues = ["a", "e", "i", "o", "u"];
 
-
-createSettingsNodes(); // Activate HTML nodes for modal
-initHistoryNodes();
+if (window.location.pathname.endsWith('index.html')) {
+    createSettingsNodes(); // Activate HTML nodes for modal
+    initHistoryNodes();
+}
 
 /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
 /// |||||||||||||||||| ONCLICK FUNCTIONS ||||||||||||||||||| |||
@@ -58,7 +59,6 @@ if (window.location.pathname.endsWith('index.html')) {
 
 
     document.getElementById("pasteButton").onclick = () => { /// PASTE INPUT TEXT
-        console.log("This runs");
         pasteInput();
     }
 
@@ -99,7 +99,6 @@ if (window.location.pathname.endsWith('index.html')) {
 
     /// DELETING HISTORY
     document.getElementById("deleteHistory").onclick = () => {
-        console.log("Deleted");
         deleteAllHistory();
     }
 
@@ -155,10 +154,8 @@ if (window.location.pathname.endsWith('index.html')) {
     /// DECRYPT FUNCTIONS ----------------------------------------
 
     function decrypt(word) {
-        console.log("Last three: ", word.substring(word.length - lastLetters.length).toLowerCase());
         if (word.substring(word.length - lastLetters.length).toLowerCase() === lastLetters) {
             word = word.slice(0, -lastLetters.length);
-            console.log(word);
         }
         let modWord = word;
         if (isReverseWord) {
@@ -400,7 +397,6 @@ function editVowelCodeInput() {
         }
         else {
             refillVowelCodeToNormal(vowelCode);
-            console.log("Vowel Code -> " + vowelCode);
             // set alert when it isn't valid
             let snackbarElement = document.getElementById("snackbarVowels");
     
@@ -465,8 +461,6 @@ function clickReverseSlider() {
 
     // overwrite the stored data ########################
     localStorage.setItem("storeIsReverseWord", JSON.stringify(isReverseWord));// ########################
-
-    console.log("Reverse Word: ", isReverseWord);
 }
 
 
@@ -511,7 +505,6 @@ function addHistory(valueToAdd) {
 
     // Add the information to the history list
     historyStorage.push({id: givenId, content: valueToAdd});
-    console.log(historyStorage[historyStorage.length -1]);
 
     createHistoryNode(valueToAdd, givenId, false);
 
@@ -689,7 +682,6 @@ async function pasteInput() {
     try {
         const toPasteText = await navigator.clipboard.readText();
         document.getElementById("inputText").value = toPasteText;
-        console.log("Pasted: " + toPasteText);
     }
     catch (error) {
         console.error("Error pasting: " + error);
