@@ -33,7 +33,7 @@ else {
 let kType = 1; // 0 -> Decryption | 1 -> Encryption
 let letterValues = ["a", "e", "i", "o", "u"];
 
-if (window.location.pathname.endsWith('index.html')) {
+if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('')) {
     createSettingsNodes(); // Activate HTML nodes for modal
     initHistoryNodes();
 }
@@ -50,7 +50,7 @@ document.getElementById("editVowelCodeIcon").onclick = () => { /// ENABLE/DISABL
     editVowelCodeInput();
 }
 
-if (window.location.pathname.endsWith('index.html')) {
+if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('')) {
     document.getElementById("copyButton").onclick = () => { /// COPY OUTPUT TEXT
         copyOutput();
 
