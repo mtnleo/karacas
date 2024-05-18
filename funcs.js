@@ -291,7 +291,7 @@ function createSettingsNodes() {
                     // create COLs
                     const colLeftReverseWord = document.createElement("div");
                     const colRightReverseWord = document.createElement("div");
-                    colLeftReverseWord.classList.add("col-sm-5", "d-flex", "justify-content-center");
+                    colLeftReverseWord.classList.add("col-sm-5", "d-flex", "justify-content-center", "text-center");
                     colRightReverseWord.classList.add("col-sm-5", "d-flex", "ms-auto", "justify-content-center");
 
                         /// CREATE SLIDEBOX
@@ -528,8 +528,14 @@ function createHistoryNode(outputText, givenId, booting) {
 
         // Text col
         let textCol = document.createElement("div");
-        textCol.classList.add("col", "w-75", "my-3", "d-flex", "align-items-center");
+        if(window.screen.width <= 375) {
+            textCol.classList.add("col", "w-50", "my-3", "d-flex", "align-items-center");
+        } 
+        else {
+            textCol.classList.add("col", "w-75", "my-3", "d-flex", "align-items-center");
 
+        }
+        
             // h3 for output
             let h3Output = document.createElement("h3");
             if(window.screen.width <= 550) { // IF PHONE
