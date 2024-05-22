@@ -156,10 +156,32 @@
             <div class="code-container">
               <blockquote class="blockquote p-3 rounded-2" style="background-color: rgb(25, 25, 25); font-size: medium;">
                 <pre>
-                  function myFunction(param1, param2) {
-                    // Your code here
-                    console.log("Hello, world!");
-                  
+                  const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+                  function encrypt(word) {
+                    // 1. Reverse word:
+                    word = word.split(""); // Turn it in an array
+
+                    word = word.reverse(); // Reverse the array
+
+                    // 2. Convert the vowels
+                    encWord = "";
+
+                    for (let i = 0; i < word.length; i++) { // It can be a for each too
+                      if (vowels.indexOf(word[i]) !== -1) {
+                        // Is vowel
+                        encWord += vowels.indexOf(word[i]);
+
+                      } else {
+                        // Not vowel
+                        encWord += word[i];
+                      }
+                    }
+
+                    // 3. Add 'aca'
+                    encWord += "aca";
+
+                    return encWord;
                   }
                 </pre>
               </blockquote>
