@@ -192,6 +192,42 @@
             
           </div>
         
+          <div> <!-- CODE -->
+            <h2 class="text-center mb-2">Decryption</h2>
+              <div class="blockquote p-3 rounded-2 mx-4 my-2" style="background-color: rgb(25, 25, 25); font-size: medium;">
+                <pre>
+                  const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+                  function decrypt(word) {
+                    // 1. Substract  'aca':
+                    word = word.slice(-3);
+
+                    // 2. Reverse word:
+                    word = word.split(""); // Turn it in an array
+
+                    word = word.reverse(); // Reverse the array
+
+                    // 3. Convert the vowels
+                    decWord = "";
+
+                    for (let i = 0; i < word.length; i++) { // It can be a for each too
+                      if (/\d/.test(word[i])) {
+                        // Is number
+                        decWord += vowels[word[i]];
+
+                      } else {
+                        // Not number
+                        decWord += word[i];
+                      }
+                    }
+
+                    return decWord;
+                  }
+                </pre>
+              </div>
+              
+            
+          </div>
         
         
       </div>
