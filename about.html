@@ -149,8 +149,8 @@
         <div class="container d-flex justify-content-center align-items-center">
           <div class="text-center mt-3 p-3" style="max-width: 70%;"> <!-- EXPLANATION -->
             <h2>How to code <mark>Karaca's</mark>?</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio enim odio vitae aliquid quae, perspiciatis sequi, laborum quis quas adipisci nobis officiis qui ad molestiae id quaerat. Cum quidem blanditiis nulla, fugit cupiditate dolor laborum.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est minus eligendi, ipsam, fuga nam quas maiores amet consequatur debitis eaque adipisci accusamus autem quos consequuntur nihil dolorem. Dicta alias consectetur odio minus tempora ab commodi, accusamus quia sit accusantium possimus reiciendis voluptates sed officiis dolor?</p>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio enim odio vitae aliquid quae, perspiciatis sequi, laborum quis quas adipisci nobis officiis qui ad molestiae id quaerat. Cum quidem blanditiis nulla, fugit cupiditate dolor laborum.</p>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est minus eligendi, ipsam, fuga nam quas maiores amet consequatur debitis eaque adipisci accusamus autem quos consequuntur nihil dolorem. Dicta alias consectetur odio minus tempora ab commodi, accusamus quia sit accusantium possimus reiciendis voluptates sed officiis dolor?</p>
           </div>
         </div>
           
@@ -158,9 +158,24 @@
           <div class="container row mt-4"> <!-- CODE -->
             <div class="col-lg p-4">
               <h2 class="text-center mb-2">Encryption</h2>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem autem quas facilis dolor ab necessitatibus.</p>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad aspernatur consequuntur soluta.</p>
-            </div>
+              <p class="lead">
+                The encryption() function approach is really simple,
+                following the steps of the already known process.<br><br>
+
+                First, we create a vowel array to know what vowel goes for each number.
+                Then we reverse the word by using JS built-in functions for turning
+                a string into an array (<code>split("")</code>) and reversing an array (<code>reverse()</code>).<br><br>
+
+                On the second step we convert the vowels, helped by an extra
+                variable where we're going to store what goes into the converted word.
+                We <code>for</code> our way through the reversed array and evaluate whether
+                the character that we're reading is a vowel or not.
+                If it is, we're going to find it in our <code>vowels</code> array
+                and we'll use the index to fill the character.<br><br>
+
+                Lastly, we just add an <code>"aca"</code> string to the end of it
+                and call it a day.
+              </div>
             <div class="col-lg">
               <img class="code-img" src="/img/encrypt-code.webp" alt="Encrypting algorithm using JavaScript code">
             </div>
@@ -202,8 +217,26 @@
           <div class="container row mt-4"> <!-- CODE -->
             <div class="col-lg p-4">
               <h2 class="text-center mb-2">Decryption</h2>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem autem quas facilis dolor ab necessitatibus.</p>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad aspernatur consequuntur soluta.</p>
+              <p class="lead">
+                The process for decryption is really easy when
+                you get the encryption function down.<br><br>
+
+                We're going to keep the same <code>vowels</code> array, and we'll
+                start by substracting the <code>"aca"</code> substring to the end 
+                of our word with the slice function that keeps all 
+                the characters between 0 and -3, and gets rid of
+                the excess.<br><br>
+
+                Secondly, we reverse the word using the same method 
+                we used on the encryption function.<br><br>
+
+                Lastly we convert the vowels by going through all the
+                characters on our array and checking with the 
+                <code>/\d/.test(word[i])</code> regex if it's a number.<br>
+                If it is, we just use it as the index for the 
+                vowel to use.
+                
+              </p>
             </div>
             <div class="col-lg">
               <img class="code-img" src="/img/decrypt-code.webp" alt="Decrypting algorithm using JavaScript code">
