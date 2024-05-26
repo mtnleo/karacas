@@ -47,11 +47,13 @@ if (window.location.pathname.endsWith('index.html') || window.location.pathname.
 if (window.location.pathname.endsWith('about.html')) {
     document.getElementById("copy-encryption").onclick = () => {
         copyOutputProvided(document.getElementById("encrypt-code-text").value);
+        setSnackbarAlertCopy();
     }
 
 
     document.getElementById("copy-decryption").onclick = () => {
         copyOutputProvided(document.getElementById("decrypt-code-text").value);
+        setSnackbarAlertCopy();
     }
 }
 
