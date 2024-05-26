@@ -31,9 +31,6 @@
            <a href="/" class="nav-link text-white">Encrypt</a>
          </li>
 
-         <li class="nav-item mx-3">
-           <a href=""  class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#settingsModal" id="settingsIcon" style="cursor: pointer">Options</a>
-         </li>
        
          <li class="nav-item mx-3">
            <a href="./about.html" class="nav-link text-white">About</a>
@@ -149,14 +146,12 @@
         <div class="container d-flex justify-content-center align-items-center">
           <div class="text-center mt-3 p-3" style="max-width: 70%;"> <!-- EXPLANATION -->
             <h2>How to code <mark>Karaca's</mark>?</h2>
-            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio enim odio vitae aliquid quae, perspiciatis sequi, laborum quis quas adipisci nobis officiis qui ad molestiae id quaerat. Cum quidem blanditiis nulla, fugit cupiditate dolor laborum.</p>
-            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est minus eligendi, ipsam, fuga nam quas maiores amet consequatur debitis eaque adipisci accusamus autem quos consequuntur nihil dolorem. Dicta alias consectetur odio minus tempora ab commodi, accusamus quia sit accusantium possimus reiciendis voluptates sed officiis dolor?</p>
-          </div>
+            </div>
         </div>
           
 
           <div class="container row mt-4"> <!-- CODE -->
-            <div class="col-lg p-4">
+            <div class="col-xxl p-4">
               <h2 class="text-center mb-2">Encryption</h2>
               <p class="lead">
                 The encryption() function approach is really simple,
@@ -176,8 +171,9 @@
                 Lastly, we just add an <code>"aca"</code> string to the end of it
                 and call it a day.
               </div>
-            <div class="col-lg">
+            <div class="col-xxl">
               <img class="code-img" src="/img/encrypt-code.webp" alt="Encrypting algorithm using JavaScript code">
+              <i data-lucide="clipboard" style="cursor: pointer; width: 20px; height: 20px; position: absolute;"></i>
             </div>
               <!-- <div class="blockquote p-3 rounded-2 mx-4 my-2" style="background-color: rgb(25, 25, 25); font-size: medium;">
                 <pre>
@@ -215,7 +211,7 @@
           </div>
 
           <div class="container row mt-4"> <!-- CODE -->
-            <div class="col-lg p-4">
+            <div class="col-xxl p-4">
               <h2 class="text-center mb-2">Decryption</h2>
               <p class="lead">
                 The process for decryption is really easy when
@@ -238,7 +234,7 @@
                 
               </p>
             </div>
-            <div class="col-lg">
+            <div class="col-xxl">
               <img class="code-img" src="/img/decrypt-code.webp" alt="Decrypting algorithm using JavaScript code">
             </div>
           </div>
@@ -284,53 +280,6 @@
       
     </div>
 
-  
-    <!-- ---------------------- SETTINGS MODAL ---------------------- -->
-  
-      <div class="modal fade " id="settingsModal">
-        <div class="modal-dialog modal-md">
-          <div class="modal-content">
-      
-            <!-- Modal Header -->
-            <div class="modal-header text-white" style="background-color: rgba(0, 0, 0, 0.5);">
-              <h4 class="modal-title">Settings</h4>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-      
-            <!-- Modal body -->
-            <div class="modal-body bg-dark text-white">
-              <!--CHANGE LAST THREE LETTERS-->
-              <div id="modalSettingsFunctions">
-  
-              </div>
-              <!-- VOWEL CODE -->
-              <div id="vowelCodeDiv" class="container">
-                <div id="vowelCodeDivRow" class="row">
-                  <div class="col d-flex pt-4"> <!-- LEFT COL -->
-                    <p class="lead fw-normal w-75">Change Vowel Code</p>
-                    <img class="mt-3 mr-2 text-center" id="editVowelCodeIcon" src="/img/Pencil icon.png" style="width: 20px; height:20px; cursor: pointer;">
-                  </div>
-                  <div class="container col pb-4 px-4 pt-3 rounded-3" style="background-color: rgba(0, 0, 0, 0.5);"> <!-- RIGHT COL -->
-                    <div class="row text-center"> <!-- Vowels -->
-                      <p class="col lead fw-bold">A</p>
-                      <p class="col ml-2 lead fw-bold">E</p>
-                      <p class="col ml-2 lead fw-bold">I</p>
-                      <p class="col ml-2 lead fw-bold">O</p>
-                      <p class="col ml-2 lead fw-bold">U</p>
-                    </div>
-                    <div class="row"> <!-- Code for Vowel-->
-                      <input id="codeA" type="text" class="col bg-dark rounded-2 text-light border-0 text-center" maxlength="1" min disabled>
-                      <input id="codeE" type="text" class="col bg-dark rounded-2 text-light ms-2 border-0 text-center" maxlength="1" disabled>
-                      <input id="codeI" type="text" class="col bg-dark rounded-2 text-light ms-2 border-0 text-center" maxlength="1" disabled>
-                      <input id="codeO" type="text" class="col bg-dark rounded-2 text-light ms-2 border-0 text-center" maxlength="1" disabled>
-                      <input id="codeU" type="text" class="col bg-dark rounded-2 text-light ms-2 border-0 text-center" maxlength="1" disabled>
-                    </div>
-                  </div>
-  
-                </div>
-              </div>
-  
-            </div>
       
             <!-- Modal footer -->
             <div class="modal-footer" style="background-color: rgba(0, 0, 0, 0.5);">
@@ -347,6 +296,8 @@
       <script src="funcs.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+      <!--LUCIDE ICONS-->
+      <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   
 
 </body>
