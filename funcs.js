@@ -43,15 +43,29 @@ if (window.location.pathname.endsWith('index.html') || window.location.pathname.
 /// |||||||||||||||||| ONCLICK FUNCTIONS ||||||||||||||||||| |||
 /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
 
+// About functions
+if (window.location.pathname.endsWith('about.html')) {
+    document.getElementById("copy-encryption").onclick = () => {
+        copyOutputProvided(document.getElementById("encrypt-code-text").value);
+    }
+
+
+    document.getElementById("copy-decryption").onclick = () => {
+        copyOutputProvided(document.getElementById("decrypt-code-text").value);
+    }
+}
+
 
 
 /// EDIT ICONS -----------------------------------------------
 
-document.getElementById("editVowelCodeIcon").onclick = () => { /// ENABLE/DISABLE VOWEL CODE CHANGE
-    editVowelCodeInput();
-}
 
 if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+
+    document.getElementById("editVowelCodeIcon").onclick = () => { /// ENABLE/DISABLE VOWEL CODE CHANGE
+        editVowelCodeInput();
+    }
+
     document.getElementById("copyButton").onclick = () => { /// COPY OUTPUT TEXT
         copyOutput();
 

@@ -171,10 +171,38 @@
                 Lastly, we just add an <code>"aca"</code> string to the end of it
                 and call it a day.
               </div>
-            <div class="col-xxl">
+            <div class="col-xxl" style="position: relative;">
               <img class="code-img" src="/img/encrypt-code.webp" alt="Encrypting algorithm using JavaScript code">
-              <i data-lucide="clipboard" style="cursor: pointer; width: 20px; height: 20px; position: absolute;"></i>
+              <img id="copy-encryption" src="/img/Copy icon.png" onclick='navigator.clipboard.writeText("")' alt="Copy Karaca's encryption code" style="cursor: pointer; position: absolute; top: 11%; right: 13%">
             </div>
+            <textarea id="encrypt-code-text" style="display: none;">
+const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+function encrypt(word) {
+  // 1. Reverse word:
+  word = word.split(""); // Turn it in an array
+
+  word = word.reverse(); // Reverse the array
+
+  // 2. Convert the vowels
+  encWord = "";
+
+  for (let i = 0; i < word.length; i++) { // It can be a for each too
+    if (vowels.indexOf(word[i]) !== -1) {
+      // Is vowel
+      encWord += vowels.indexOf(word[i]);
+
+    } else {
+      // Not vowel
+      encWord += word[i];
+    }
+  }
+
+  // 3. Add 'aca'
+  encWord += "aca";
+
+  return encWord;
+} </textarea>
               <!-- <div class="blockquote p-3 rounded-2 mx-4 my-2" style="background-color: rgb(25, 25, 25); font-size: medium;">
                 <pre>
                   const vowels = ['a', 'e', 'i', 'o', 'u'];
@@ -234,9 +262,39 @@
                 
               </p>
             </div>
-            <div class="col-xxl">
+            <div class="col-xxl" style="position: relative;">
               <img class="code-img" src="/img/decrypt-code.webp" alt="Decrypting algorithm using JavaScript code">
+              <img id="copy-decryption" src="/img/Copy icon.png" alt="Copy Karaca's encryption code" style="cursor: pointer; position: absolute; top: 11%; right: 13%">
             </div>
+            <textarea id="decrypt-code-text" style="display: none;">
+const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+function decrypt(word) {
+  word = word.slice(0, -3);
+  
+  // 2. Reverse word:
+  word = word.split(""); // Turn it in an array
+  
+  // 1. Substract  'aca':
+  word = word.reverse(); // Reverse the array
+
+  // 3. Convert the vowels
+  decWord = "";
+
+  for (let i = 0; i < word.length; i++) { // It can be a for each too
+    if (/\d/.test(word[i])) {
+      // Is number
+      decWord += vowels[word[i]];
+
+    } else {
+      // Not number
+      decWord += word[i];
+    }
+  }
+
+  return decWord;
+}
+            </textarea>
           </div>
                 <!-- <pre>
                   const vowels = ['a', 'e', 'i', 'o', 'u'];
@@ -279,16 +337,6 @@
       </a>
       
     </div>
-
-      
-            <!-- Modal footer -->
-            <div class="modal-footer" style="background-color: rgba(0, 0, 0, 0.5);">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-            </div>
-      
-          </div>
-        </div>
-      </div>
   
       <!-- ---------------------------------- --->
       <!-- Making the Bootstrap and CSS/JS work-->
