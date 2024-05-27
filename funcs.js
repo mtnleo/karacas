@@ -1,4 +1,3 @@
-//localStorage.clear();
 
 
 /// |||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
@@ -27,8 +26,6 @@ else {
     localStorage.setItem("storeLastLetters", lastLetters);
     localStorage.setItem("storeIsReverseWord", JSON.stringify(isReverseWord));
     localStorage.setItem("historyStorage", JSON.stringify(historyStorage));
-
-    console.log("New values saved. Welcome");
 }
 
 let kType = 1; // 0 -> Decryption | 1 -> Encryption
@@ -642,66 +639,6 @@ function deleteAllHistory() {
     localStorage.setItem("historyStorage", JSON.stringify(historyStorage));
 }
 
-// function updatePagesLabel() {
-//     document.getElementById("pagesLabel").innerText = currentPage + " / " + getTotalPages();
-// }
-
-// /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
-// /// ||||||||||||||||||| HANDLING HISTORY PAGES |||||||||||||||||||| |||
-// /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ///
-
-// function getTotalPages() {
-//     let totalNumberOfPages;
-//     if (historyStorage.length % 10 === 0) {
-//         totalNumberOfPages = Math.floor(historyStorage.length / 10);
-//     }
-//     else {
-//         totalNumberOfPages = Math.floor(historyStorage.length / 10 + 1);
-
-//     }
-//     return totalNumberOfPages;
-    
-// }
-
-// function disablePageArrow(arrowId) {
-//     document.getElementById(arrowId).style.opacity = "50%";
-//     document.getElementById(arrowId).style.cursor = "default";
-// }
-
-// function enablePageArrow(arrowId) {
-//     document.getElementById(arrowId).style.opacity = "100%";
-//     document.getElementById(arrowId).style.cursor = "pointer";
-// }
-
-// function pageRight() {
-//     if (currentPage < getTotalPages()) { // if there're pages to the right
-//         currentPage += 1;
-//         if(currentPage === getTotalPages()) {
-//             disablePageArrow("pageRight");
-//         }
-
-//         updatePagesLabel();
-//     }
-// }
-
-// function pageLeft() {
-//     if (currentPage !== 1) { // if there're pages to the left
-//         currentPage -= 1;
-//         if(currentPage === 1) {
-//             disablePageArrow("pageLeft");
-//         }
-
-//         updatePagesLabel();
-//     }
-// }
-
-// function deletePage() {
-
-// }
-
-// function ShowNewPage(newPageIndex) {
-//     for (let i = (getTotalPages() - newPageIndex) * 10; i > ((getTotalPages() - newPageIndex) * 10) - 10; i--)
-// }
 
 /// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \\\
 /// ||||||||||||||||||| COPY/PASTE FUNCTIONS || ||||||||||||||||||| |||
